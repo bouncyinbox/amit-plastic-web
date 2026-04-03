@@ -7,6 +7,11 @@ import kidsFurnitures from '@/assets/plastic-furniture/kids-furnitures.jpg';
 import multipurposeStorages from '@/assets/plastic-furniture/multipurpose-storages.jpg';
 import beds from '@/assets/plastic-furniture/Beds.jpg';
 
+import lunchBoxes from '@/assets/Thermowares/Lunch-Boxes.jpg';
+import bottles from '@/assets/Thermowares/Bottles.jpg';
+import waterJugs from '@/assets/Thermowares/Water-Jugs.jpg';
+import casseroles from '@/assets/Thermowares/Casseroles.jpg';
+
 import steelAlmirahs from '@/assets/home-furnitures/steel-almirahs.jpg';
 import tvUnits from '@/assets/home-furnitures/tv-units.webp';
 import homeBeds from '@/assets/home-furnitures/beds.jpg';
@@ -28,4 +33,8 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   'home-2': homeBeds.src,
   'home-3': wardrobes.src,
   'home-4': dressingTables.src,
+  'thermoware-0': lunchBoxes.src,
+  'thermoware-1': bottles.src,
+  'thermoware-2': waterJugs.src,
+  'thermoware-3': casseroles.src,
 };

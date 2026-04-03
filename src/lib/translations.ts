@@ -138,6 +138,12 @@ export const translations: Record<Lang, Translations> = {
         items: ['Steel Almirahs', 'TV Units', 'Beds', 'Wardrobes', 'Dressing Tables'],
       },
       {
+        id: 'thermoware',
+        name: 'Thermowares',
+        desc: 'Insulated bottles, casseroles, and lunch boxes \u2014 keep food & drinks fresh for hours.',
+        items: ['Lunch Boxes', 'Bottles', 'Water Jugs', 'Casseroles'],
+      },
+      {
         id: 'office',
         name: 'Office Furniture',
         desc: 'Desks, ergonomic chairs, and smart storage for serious workspaces.',
@@ -148,12 +154,6 @@ export const translations: Record<Lang, Translations> = {
         name: 'Household Essentials',
         desc: 'Everyday home essentials \u2014 buckets, baskets, bins, and storage solutions for every room.',
         items: ['Buckets', 'Baskets', 'Bins', 'Hangers', 'Organisers'],
-      },
-      {
-        id: 'thermoware',
-        name: 'Thermowares',
-        desc: 'Insulated bottles, flasks, casseroles, and lunch boxes \u2014 keep food & drinks fresh for hours.',
-        items: ['Water Bottles', 'Flasks', 'Casseroles', 'Tiffin Boxes', 'Jugs'],
       },
     ],
     distrib: 'Wholesale Distributor \u00b7 Authorized Dealer',
@@ -296,6 +296,12 @@ export const translations: Record<Lang, Translations> = {
         items: ['\u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940', '\u091f\u0940\u0935\u0940 \u092f\u0942\u0928\u093f\u091f', '\u092c\u0947\u0921', '\u0935\u093e\u0930\u094d\u0921\u0930\u094b\u092c', '\u0921\u094d\u0930\u0947\u0938\u093f\u0902\u0917 \u091f\u0947\u092c\u0932'],
       },
       {
+        id: 'thermoware',
+        name: '\u0925\u0930\u094d\u092e\u094b\u0935\u0947\u092f\u0930',
+        desc: '\u0907\u0902\u0938\u0941\u0932\u0947\u091f\u0947\u0921 \u092c\u094b\u0924\u0932, \u0915\u0948\u0938\u0930\u094b\u0932 \u0914\u0930 \u0932\u0902\u091a \u092c\u0949\u0915\u094d\u0938 \u2014 \u0918\u0902\u091f\u094b\u0902 \u0924\u0915 \u0924\u093e\u091c\u093c\u093e \u092f\u093e \u0920\u0902\u0921\u093e\u0964',
+        items: ['\u0932\u0902\u091a \u092c\u0949\u0915\u094d\u0938', '\u092c\u094b\u0924\u0932', '\u0935\u0949\u091f\u0930 \u091c\u0917', '\u0915\u0948\u0938\u0930\u094b\u0932'],
+      },
+      {
         id: 'office',
         name: '\u0911\u092b\u093f\u0938 \u092b\u0930\u094d\u0928\u0940\u091a\u0930',
         desc: '\u0921\u0947\u0938\u094d\u0915, \u0906\u0930\u093e\u092e\u0926\u093e\u092f\u0915 \u0915\u0941\u0930\u094d\u0938\u093f\u092f\u093e\u0901 \u0914\u0930 \u0938\u094d\u092e\u093e\u0930\u094d\u091f \u0938\u094d\u091f\u094b\u0930\u0947\u091c\u0964',
@@ -306,12 +312,6 @@ export const translations: Record<Lang, Translations> = {
         name: '\u0918\u0930\u0947\u0932\u0942 \u091c\u093c\u0930\u0942\u0930\u0924\u0947\u0902',
         desc: '\u0930\u094b\u091c\u093c\u092e\u0930\u094d\u0930\u093e \u0915\u0947 \u0918\u0930\u0947\u0932\u0942 \u0938\u093e\u092e\u093e\u0928 \u2014 \u092c\u093e\u0932\u094d\u091f\u0940, \u091f\u094b\u0915\u0930\u0940, \u0921\u0938\u094d\u091f\u092c\u093f\u0928 \u0914\u0930 \u0938\u094d\u091f\u094b\u0930\u0947\u091c\u0964',
         items: ['\u092c\u093e\u0932\u094d\u091f\u0940', '\u091f\u094b\u0915\u0930\u0940', '\u0921\u0938\u094d\u091f\u092c\u093f\u0928', '\u0939\u0948\u0902\u0917\u0930', '\u0911\u0930\u094d\u0917\u0928\u093e\u0907\u091c\u093c\u0930'],
-      },
-      {
-        id: 'thermoware',
-        name: '\u0925\u0930\u094d\u092e\u094b\u0935\u0947\u092f\u0930',
-        desc: '\u0907\u0902\u0938\u0941\u0932\u0947\u091f\u0947\u0921 \u092c\u094b\u0924\u0932, \u092b\u094d\u0932\u093e\u0938\u094d\u0915, \u0915\u0948\u0938\u0930\u094b\u0932 \u0914\u0930 \u091f\u093f\u092b\u093f\u0928 \u092c\u0949\u0915\u094d\u0938 \u2014 \u0918\u0902\u091f\u094b\u0902 \u0924\u0915 \u0924\u093e\u091c\u093c\u093e \u092f\u093e \u0920\u0902\u0921\u093e\u0964',
-        items: ['\u092a\u093e\u0928\u0940 \u0915\u0940 \u092c\u094b\u0924\u0932', '\u092b\u094d\u0932\u093e\u0938\u094d\u0915', '\u0915\u0948\u0938\u0930\u094b\u0932', '\u091f\u093f\u092b\u093f\u0928 \u092c\u0949\u0915\u094d\u0938', '\u091c\u0917'],
       },
     ],
     distrib: '\u0925\u094b\u0915 \u0935\u093f\u0924\u0930\u0915 \u00b7 \u0905\u0927\u093f\u0915\u0943\u0924 \u0921\u0940\u0932\u0930',
