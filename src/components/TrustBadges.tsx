@@ -120,7 +120,7 @@ export default function TrustBadges({ variant = 'dark', size = 'md', isHi = fals
             <div
               style={{
                 fontSize: isSm ? 11 : 13,
-                color: isDark ? 'rgba(255,255,255,0.35)' : 'rgba(26,26,46,0.45)',
+                color: isDark ? 'rgba(255,255,255,0.55)' : 'rgba(26,26,46,0.55)',
                 fontWeight: 500,
               }}
             >

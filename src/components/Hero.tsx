@@ -113,7 +113,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         style={{
           fontSize: 'clamp(11px,2vw,14px)',
           fontWeight: 500,
-          color: 'rgba(255,255,255,0.4)',
+          color: 'rgba(255,255,255,0.55)',
           letterSpacing: isHi ? 1 : 4,
           textTransform: isHi ? 'none' : 'uppercase',
         }}
@@ -144,7 +144,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         className="animate-[fadeUp_0.9s_cubic-bezier(0.16,1,0.3,1)_0.55s_both] mt-2 lg:mt-3"
         style={{
           fontSize: 11,
-          color: 'rgba(255,255,255,0.3)',
+          color: 'rgba(255,255,255,0.5)',
           letterSpacing: isHi ? 0 : 1.5,
           fontWeight: 500,
         }}

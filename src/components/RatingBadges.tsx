@@ -53,11 +53,11 @@ function Badge({ platform, logo, rating, count, href, accentColor }: {
         {logo}
       </div>
       <div>
-        <p className="text-[11px] font-semibold tracking-wide" style={{ color: 'rgba(255,255,255,0.45)' }}>{platform}</p>
+        <p className="text-[11px] font-semibold tracking-wide" style={{ color: 'rgba(255,255,255,0.6)' }}>{platform}</p>
         <div className="flex items-center gap-1.5 mt-0.5">
           <span className="font-sora font-bold text-white text-[15px]">{rating}</span>
           <StarRating value={parseFloat(rating)} />
-          <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.4)' }}>({count})</span>
+          <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.55)' }}>({count})</span>
         </div>
       </div>
     </a>

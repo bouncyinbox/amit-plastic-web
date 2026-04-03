@@ -30,7 +30,7 @@ export default function StorySection({ t, isHi }: SectionProps) {
                 <div className="p-6 pt-7">
                   <div
                     className="font-sora font-black leading-none mb-[-6px]"
-                    style={{ fontSize: 44, color: ACCENT_COLORS[i], opacity: 0.12, letterSpacing: -1 }}
+                    style={{ fontSize: 44, color: ACCENT_COLORS[i], opacity: 0.18, letterSpacing: -1 }}
                   >
                     {item.year}
                   </div>

@@ -209,7 +209,7 @@ export default function Footer({ t, isHi }: SectionProps) {
           className="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
-          <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
             © {new Date().getFullYear()} Amit Plastic. All rights reserved.
           </p>
           <div className="flex gap-1.5">
