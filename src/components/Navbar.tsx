@@ -70,9 +70,9 @@ export default function Navbar({ scrolled, lang, setLang, t }: NavbarProps) {
       aria-label="Main navigation"
       className="fixed top-0 left-0 right-0 z-[999] transition-all duration-500"
       style={{
-        background: scrolled ? 'rgba(255,255,255,0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px) saturate(1.8)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : 'none',
+        background: scrolled ? 'rgba(255,255,255,0.82)' : 'rgba(26,26,46,0.65)',
+        backdropFilter: 'blur(20px) saturate(1.8)',
+        borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid rgba(255,255,255,0.06)',
         padding: scrolled ? '14px 0' : '24px 0',
       }}
     >
