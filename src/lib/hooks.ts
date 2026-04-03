@@ -7,6 +7,11 @@ export function useParallax(speed = 0.3) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    // Skip parallax on mobile or when user prefers reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+    if (prefersReduced || isMobile) return;
+
     const handleScroll = () => {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();

@@ -10,8 +10,8 @@ import type { SectionProps } from './types';
 export default function ProductsSection({ t, isHi }: SectionProps) {
   const [activeCatId, setActiveCatId] = useState('plastic');
 
-  const activeCat = t.cats.find(c => c.id === activeCatId);
-  const activeCatIndex = ['plastic', 'steel', 'home', 'office'].indexOf(activeCatId);
+  const activeCatIndex = t.cats.findIndex(c => c.id === activeCatId);
+  const activeCat = t.cats[activeCatIndex];
 
   return (
     <section

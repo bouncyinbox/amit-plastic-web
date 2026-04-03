@@ -68,17 +68,17 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         </p>
 
         <div className="animate-[fadeUp_0.9s_cubic-bezier(0.16,1,0.3,1)_0.7s_both] flex gap-3.5 justify-center flex-wrap mt-9">
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[14px] font-semibold bg-brand-blue text-white hover:bg-brand-blueDark transition-all duration-400 hover:-translate-y-1 hover:shadow-xl">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full text-[14px] font-semibold bg-brand-blue text-white hover:bg-brand-blueDark transition-all duration-400 hover:-translate-y-1 hover:shadow-xl">
             💬 {t.wa}
           </a>
-          <a href={CALL_URL} className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full text-[14px] font-semibold transition-all duration-400 hover:-translate-y-1" style={{ borderColor: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.12)' }}>
+          <a href={CALL_URL} className="inline-flex items-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full text-[14px] font-semibold transition-all duration-400 hover:-translate-y-1" style={{ borderColor: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)', background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.12)' }}>
             📞 {t.call}
           </a>
         </div>
 
         <div className="animate-[scaleIn_1.2s_cubic-bezier(0.16,1,0.3,1)_0.9s_both] flex justify-center gap-[clamp(28px,7vw,64px)] mt-14 flex-wrap">
           {t.stats.map((s, i) => (
-            <div key={i} className="text-center">
+            <div key={s.value} className="text-center">
               <div className="font-sora font-extrabold leading-none" style={{ fontSize: 'clamp(32px,6vw,48px)', color: ACCENT_COLORS[i], letterSpacing: -1 }}>{s.value}</div>
               <div className="mt-1" style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontWeight: 500, letterSpacing: 0.5 }}>{s.label}</div>
             </div>
