@@ -30,10 +30,7 @@ export default function BrandsSection({ t, isHi }: SectionProps) {
       </div>
 
       <div className="container">
-        <div
-          className="flex gap-4 overflow-x-auto pb-2 no-scrollbar"
-          style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
-        >
+        <div className="flex flex-wrap justify-center gap-4">
           {t.brands.map((brand, i) => {
             const accentColor = BRAND_COLORS[brand.name] ?? ACCENT_COLORS[i % ACCENT_COLORS.length];
             const logoUrl = BRAND_LOGO_URLS[brand.name];
@@ -41,8 +38,8 @@ export default function BrandsSection({ t, isHi }: SectionProps) {
             return (
               <div
                 key={brand.name}
-                className="flex-1 flex-shrink-0 flex items-center justify-center bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
-                style={{ minWidth: 180, height: 110, scrollSnapAlign: 'start', borderTop: `3px solid ${accentColor}` }}
+                className="flex items-center justify-center bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300"
+                style={{ width: 180, height: 110, borderTop: `3px solid ${accentColor}` }}
               >
                 {logoUrl && (
                   <img
