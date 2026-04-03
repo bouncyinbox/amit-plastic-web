@@ -57,7 +57,7 @@ export default function Footer({ t, isHi }: SectionProps) {
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)' }} />
 
       <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_1fr_1.3fr] gap-10 md:gap-8">
 
           {/* Col 1 — Brand + social + ratings */}
           <div>
@@ -154,6 +154,53 @@ export default function Footer({ t, isHi }: SectionProps) {
                 📞 {t.call}
               </a>
             </div>
+          </div>
+
+          {/* Col 4 — Facebook Card */}
+          <div>
+            <p className="text-[11px] tracking-[3px] uppercase font-bold mb-5" style={{ color: colors.white35 }}>
+              {isHi ? 'फेसबुक पर फॉलो करें' : 'Follow Us on Facebook'}
+            </p>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+              style={{ background: colors.white07, border: `1px solid ${colors.white12}` }}
+            >
+              {/* FB Logo + Page Name */}
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: '#1877F2' }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[15px] font-semibold text-white leading-tight">Amit Plastic</p>
+                  <p className="text-[12px] mt-0.5" style={{ color: colors.white45 }}>
+                    {isHi ? 'फर्नीचर एक्सक्लूसिव शोरूम' : 'Furniture Exclusive Showroom'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-[13px] leading-[1.7] mb-5" style={{ color: colors.white55 }}>
+                {isHi
+                  ? 'नवीनतम अपडेट, ऑफ़र और नई प्रोडक्ट जानकारी के लिए हमें फेसबुक पर फॉलो करें।'
+                  : 'Follow us for latest updates, offers & new arrivals. Join our community!'}
+              </p>
+
+              {/* Like & Follow Button */}
+              <div
+                className="flex items-center justify-center gap-2 py-3 rounded-full text-[13px] font-semibold transition-all duration-300 group-hover:brightness-110"
+                style={{ background: '#1877F2', color: 'white' }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                </svg>
+                {isHi ? 'लाइक और फॉलो करें' : 'Like & Follow'}
+              </div>
+            </a>
           </div>
         </div>
 
