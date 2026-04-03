@@ -177,7 +177,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
 
       {/* Trust badges */}
       <div className="animate-[fadeUp_0.9s_cubic-bezier(0.16,1,0.3,1)_0.8s_both] mt-8 lg:mt-10">
-        <TrustBadges variant="dark" size="sm" />
+        <TrustBadges variant="dark" size="sm" isHi={isHi} />
       </div>
     </div>
   );

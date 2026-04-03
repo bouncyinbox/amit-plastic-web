@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Anim, ScaleIn } from '@/components/Animations';
 import SectionHeader from '@/components/SectionHeader';
 import { WHATSAPP_URL, ACCENT_COLORS, CATEGORY_ICONS, CATEGORY_GRADIENTS } from '@/lib/constants';
+import { PRODUCT_IMAGES } from '@/lib/product-images';
 import { bodyFont } from '@/lib/design';
 import type { SectionProps } from './types';
 
@@ -48,15 +49,6 @@ export default function ProductsSection({ t, isHi }: SectionProps) {
         {activeCat && (
           <ScaleIn key={activeCat.id}>
             <div className="text-center mb-8">
-              <div
-                className="inline-flex w-16 h-16 rounded-[20px] items-center justify-center text-[28px] mb-3"
-                style={{
-                  background: CATEGORY_GRADIENTS[activeCat.id],
-                  boxShadow: `0 8px 24px ${ACCENT_COLORS[activeCatIndex]}33`,
-                }}
-              >
-                {CATEGORY_ICONS[activeCat.id]}
-              </div>
               <h3
                 className="font-sora font-bold text-[28px] text-[#1a1a2e] mb-1"
                 style={{ letterSpacing: -0.5 }}
@@ -69,17 +61,28 @@ export default function ProductsSection({ t, isHi }: SectionProps) {
             </div>
 
             <div className="flex flex-wrap justify-center gap-3.5">
-              {activeCat.items.map(item => (
-                <div
-                  key={item}
-                  className="w-[140px] bg-white rounded-[20px] p-5 pt-6 text-center border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-transparent"
-                >
-                  <div className="w-full aspect-square rounded-[14px] bg-gray-50 flex items-center justify-center text-4xl mb-3">
-                    {CATEGORY_ICONS[activeCat.id]}
+              {activeCat.items.map((item, idx) => {
+                const imgSrc = PRODUCT_IMAGES[`${activeCat.id}-${idx}`];
+                return (
+                  <div
+                    key={item}
+                    className="w-[140px] sm:w-[160px] bg-white rounded-[20px] p-3 pt-3 text-center border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-transparent"
+                  >
+                    <div className="w-full aspect-square rounded-[14px] bg-gray-50 flex items-center justify-center text-4xl mb-3 overflow-hidden">
+                      {imgSrc ? (
+                        <img
+                          src={imgSrc}
+                          alt={item}
+                          className="w-full h-full object-cover rounded-[14px]"
+                        />
+                      ) : (
+                        CATEGORY_ICONS[activeCat.id]
+                      )}
+                    </div>
+                    <p className="text-[13px] font-semibold text-[#1a1a2e]">{item}</p>
                   </div>
-                  <p className="text-[13px] font-semibold text-[#1a1a2e]">{item}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="text-center mt-8">

@@ -3,6 +3,7 @@
 interface TrustBadgesProps {
   variant?: 'light' | 'dark';
   size?: 'sm' | 'md';
+  isHi?: boolean;
 }
 
 const badges = [
@@ -14,7 +15,9 @@ const badges = [
       </svg>
     ),
     label: 'Authorized Dealer',
+    labelHi: '\u0905\u0927\u093f\u0915\u0943\u0924 \u0921\u0940\u0932\u0930',
     sub: 'Certified Brand Partner',
+    subHi: '\u092a\u094d\u0930\u092e\u093e\u0923\u093f\u0924 \u092c\u094d\u0930\u093e\u0902\u0921 \u092a\u093e\u0930\u094d\u091f\u0928\u0930',
   },
   {
     icon: (
@@ -24,7 +27,9 @@ const badges = [
       </svg>
     ),
     label: 'Est. 1990',
+    labelHi: '\u0938\u094d\u0925\u093e\u092a\u0928\u093e 1990',
     sub: '35+ Years of Trust',
+    subHi: '35+ \u0938\u093e\u0932 \u0915\u093e \u092d\u0930\u094b\u0938\u093e',
   },
   {
     icon: (
@@ -32,8 +37,10 @@ const badges = [
         <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
       </svg>
     ),
-    label: '4.5★ Rated',
+    label: '4.5\u2605 Rated',
+    labelHi: '4.5\u2605 \u0930\u0947\u091f\u093f\u0902\u0917',
     sub: 'Google Reviews',
+    subHi: '\u0917\u0942\u0917\u0932 \u0930\u093f\u0935\u094d\u092f\u0942',
   },
   {
     icon: (
@@ -45,7 +52,9 @@ const badges = [
       </svg>
     ),
     label: '10,000+',
+    labelHi: '10,000+',
     sub: 'Happy Families',
+    subHi: '\u0916\u0941\u0936 \u092a\u0930\u093f\u0935\u093e\u0930',
   },
   {
     icon: (
@@ -56,7 +65,9 @@ const badges = [
       </svg>
     ),
     label: 'Secure Payment',
-    sub: 'Cash · UPI · Card',
+    labelHi: '\u0938\u0941\u0930\u0915\u094d\u0937\u093f\u0924 \u092d\u0941\u0917\u0924\u093e\u0928',
+    sub: 'Cash \u00b7 UPI \u00b7 Card',
+    subHi: '\u0928\u0915\u0926 \u00b7 UPI \u00b7 \u0915\u093e\u0930\u094d\u0921',
   },
   {
     icon: (
@@ -67,11 +78,13 @@ const badges = [
       </svg>
     ),
     label: '100% Genuine',
+    labelHi: '100% \u0905\u0938\u0932\u0940',
     sub: 'Trusted Products',
+    subHi: '\u092d\u0930\u094b\u0938\u0947\u092e\u0902\u0926 \u0909\u0924\u094d\u092a\u093e\u0926',
   },
 ];
 
-export default function TrustBadges({ variant = 'dark', size = 'md' }: TrustBadgesProps) {
+export default function TrustBadges({ variant = 'dark', size = 'md', isHi = false }: TrustBadgesProps) {
   const isDark = variant === 'dark';
   const isSm = size === 'sm';
 
@@ -102,7 +115,7 @@ export default function TrustBadges({ variant = 'dark', size = 'md' }: TrustBadg
                 color: isDark ? 'rgba(255,255,255,0.85)' : '#1a1a2e',
               }}
             >
-              {b.label}
+              {isHi ? b.labelHi : b.label}
             </div>
             <div
               style={{
@@ -111,7 +124,7 @@ export default function TrustBadges({ variant = 'dark', size = 'md' }: TrustBadg
                 fontWeight: 500,
               }}
             >
-              {b.sub}
+              {isHi ? b.subHi : b.sub}
             </div>
           </div>
         </div>
