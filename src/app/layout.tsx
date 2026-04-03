@@ -1,61 +1,238 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 
+const BASE_URL = 'https://amitplastic.in';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#1a73e8',
+};
+
 export const metadata: Metadata = {
-  title: 'Amit Plastic - Furniture Exclusive Showroom | Sitamarhi, Bihar',
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi, Bihar',
+    template: '%s | Amit Plastic Sitamarhi',
+  },
   description:
-    'Authorized distributor of Supreme & Linc Furniture in Sitamarhi, Bihar. 30+ years of trust. Plastic furniture, steel almirahs, home & office furniture.',
+    'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture. Plastic chairs, steel almirahs, home & office furniture. Visit us near Mata Vaishno Mandir, Thana Road, Sitamarhi — 843302, Bihar.',
   keywords: [
     'furniture showroom Sitamarhi',
-    'Amit Plastic',
-    'Supreme furniture Sitamarhi',
+    'Amit Plastic Sitamarhi',
+    'wholesale furniture Sitamarhi',
+    'Supreme furniture dealer Sitamarhi',
     'Linc furniture Bihar',
     'steel almirah Sitamarhi',
-    'furniture shop near me',
-    'plastic chairs Sitamarhi',
-    'office furniture Bihar',
-    'home furniture Sitamarhi',
+    'plastic chair wholesale Bihar',
+    'furniture shop near Mata Vaishno Mandir Sitamarhi',
+    'office furniture Sitamarhi',
+    'home furniture Bihar',
+    'Milton furniture Sitamarhi',
+    'Sapana carpet Sitamarhi',
+    'furniture wholesale distributor Bihar',
+    'furniture dealer Sitamarhi',
+    'अमित प्लास्टिक सीतामढ़ी',
+    'फर्नीचर सीतामढ़ी',
   ],
-  authors: [{ name: 'Amit Plastic Furniture' }],
+  authors: [{ name: 'Amit Plastic Furniture Exclusive Showroom' }],
+  creator: 'Amit Plastic',
+  publisher: 'Amit Plastic',
+  category: 'Furniture Store',
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      'en-IN': BASE_URL,
+      'hi-IN': `${BASE_URL}?lang=hi`,
+    },
+  },
   openGraph: {
-    title: 'Amit Plastic - Furniture Exclusive Showroom',
-    description:
-      'Three decades of trust. Authorized distributor of Supreme & Linc Furniture in Sitamarhi, Bihar.',
-    url: 'https://amitplastic.in',
-    siteName: 'Amit Plastic',
-    locale: 'en_IN',
     type: 'website',
+    locale: 'en_IN',
+    alternateLocale: 'hi_IN',
+    url: BASE_URL,
+    siteName: 'Amit Plastic',
+    title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
+    description:
+      'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture. Plastic chairs, steel almirahs, home & office furniture.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Amit Plastic — Furniture Exclusive Showroom, Sitamarhi',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amit Plastic - Furniture Exclusive Showroom',
+    title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
     description:
-      'Three decades of trust. Authorized distributor of Supreme & Linc Furniture in Sitamarhi, Bihar.',
+      'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
-  themeColor: '#1a73e8',
+  other: {
+    // Geo meta tags for local SEO
+    'geo.region': 'IN-BR',
+    'geo.placename': 'Sitamarhi, Bihar, India',
+    'geo.position': '26.5918;85.4893',
+    'ICBM': '26.5918, 85.4893',
+    // AI crawler hints
+    'revisit-after': '7 days',
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'FurnitureStore', 'Store'],
+      '@id': `${BASE_URL}/#business`,
+      name: 'Amit Plastic Furniture Exclusive Showroom',
+      alternateName: ['Amit Plastic', 'Amit Plastic Sitamarhi'],
+      description:
+        "Sitamarhi's largest furniture showroom and wholesale distributor since 1990. Authorized dealer of Supreme, Linc, Milton furniture and Sapana carpets.",
+      url: BASE_URL,
+      telephone: '+919835242431',
+      email: undefined,
+      foundingDate: '1990',
+      founder: { '@type': 'Person', name: 'Vijay' },
+      priceRange: '₹₹',
+      currenciesAccepted: 'INR',
+      paymentAccepted: 'Cash, UPI, Bank Transfer',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Near Mata Vaishno Mandir, Thana Road',
+        addressLocality: 'Sitamarhi',
+        addressRegion: 'Bihar',
+        postalCode: '843302',
+        addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 26.5918,
+        longitude: 85.4893,
+      },
+      hasMap: 'https://maps.app.goo.gl/xo1miWgQQ8HWe3oT6',
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          opens: '09:00',
+          closes: '20:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Sunday',
+          opens: '10:00',
+          closes: '18:00',
+        },
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.5',
+        reviewCount: '80',
+        bestRating: '5',
+        worstRating: '1',
+      },
+      sameAs: [
+        'https://www.facebook.com/amitplasticstm/',
+        'https://www.indiamart.com/amit-plastic-sitamarhi/',
+        'https://www.justdial.com/Sitamarhi/Amit-Plastic-Furniture-Exclusive-Showroom-Near-Mata-Vaishno-Mandir-Bazar/9999P6226-6226-130406154447-L8P1_BZDET',
+        'https://maps.app.goo.gl/xo1miWgQQ8HWe3oT6',
+      ],
+      brand: [
+        { '@type': 'Brand', name: 'Supreme Furniture' },
+        { '@type': 'Brand', name: 'Linc Furniture' },
+        { '@type': 'Brand', name: 'Milton' },
+        { '@type': 'Brand', name: 'Sapana' },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Furniture & Home Products',
+        itemListElement: [
+          { '@type': 'OfferCatalog', name: 'Plastic Furniture', description: 'Chairs, tables, dining sets — Supreme & Linc brands' },
+          { '@type': 'OfferCatalog', name: 'Steel Almirahs', description: 'Single and double door steel almirahs, wardrobes' },
+          { '@type': 'OfferCatalog', name: 'Home Furniture', description: 'Sofas, centre tables, racks, baby chairs' },
+          { '@type': 'OfferCatalog', name: 'Office Furniture', description: 'Office chairs, tables, filing cabinets' },
+          { '@type': 'OfferCatalog', name: 'Carpets & Mats', description: 'Sapana carpets, door mats, floor mats, rugs' },
+        ],
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Sitamarhi' },
+        { '@type': 'AdministrativeArea', name: 'Sitamarhi district' },
+        { '@type': 'State', name: 'Bihar' },
+      ],
+      knowsAbout: [
+        'Plastic Furniture',
+        'Steel Almirahs',
+        'Wholesale Furniture Distribution',
+        'Home Furniture',
+        'Office Furniture',
+        'Supreme Furniture',
+        'Linc Furniture',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${BASE_URL}/#website`,
+      url: BASE_URL,
+      name: 'Amit Plastic',
+      description: "Sitamarhi's leading furniture showroom and wholesale distributor since 1990.",
+      inLanguage: ['en-IN', 'hi-IN'],
+      publisher: { '@id': `${BASE_URL}/#business` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Products', item: `${BASE_URL}/#products` },
+        { '@type': 'ListItem', position: 3, name: 'Brands', item: `${BASE_URL}/#brands` },
+        { '@type': 'ListItem', position: 4, name: 'Reviews', item: `${BASE_URL}/#reviews` },
+        { '@type': 'ListItem', position: 5, name: 'Contact', item: `${BASE_URL}/#contact` },
+      ],
+    },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="canonical" href={BASE_URL} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
