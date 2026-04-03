@@ -15,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Googlebot', allow: '/' },
     ],
-    sitemap: 'https://www.amitplastic.in/sitemap.xml',
-    host: 'https://www.amitplastic.in',
+    sitemap: 'https://amitplastic.in/sitemap.xml',
+    host: 'https://amitplastic.in',
   };
 }

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 const BASE_URL = 'https://amitplastic.in';
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
       'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture. Plastic chairs, steel almirahs, home & office furniture.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Amit Plastic — Furniture Exclusive Showroom, Sitamarhi',
@@ -71,7 +70,7 @@ export const metadata: Metadata = {
     title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
     description:
       'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture.',
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -110,7 +109,6 @@ const jsonLd = {
         "Sitamarhi's largest furniture showroom and wholesale distributor since 1990. Authorized dealer of Supreme, Linc, Milton furniture and Sapana carpets.",
       url: BASE_URL,
       telephone: '+919835242431',
-      email: undefined,
       foundingDate: '1990',
       founder: { '@type': 'Person', name: 'Vijay' },
       priceRange: '₹₹',
@@ -156,15 +154,20 @@ const jsonLd = {
         { '@type': 'Brand', name: 'Linc Furniture' },
         { '@type': 'Brand', name: 'Milton' },
         { '@type': 'Brand', name: 'Sapana' },
+        { '@type': 'Brand', name: 'Spacewood' },
+        { '@type': 'Brand', name: 'SPL' },
+        { '@type': 'Brand', name: 'Uniko' },
+        { '@type': 'Brand', name: 'Sleepwell' },
+        { '@type': 'Brand', name: 'CMP' },
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Furniture & Home Products',
         itemListElement: [
-          { '@type': 'OfferCatalog', name: 'Plastic Furniture', description: 'Chairs, tables, dining sets — Supreme & Linc brands' },
-          { '@type': 'OfferCatalog', name: 'Steel Almirahs', description: 'Single and double door steel almirahs, wardrobes' },
-          { '@type': 'OfferCatalog', name: 'Home Furniture', description: 'Sofas, centre tables, racks, baby chairs' },
-          { '@type': 'OfferCatalog', name: 'Office Furniture', description: 'Office chairs, tables, filing cabinets' },
+          { '@type': 'OfferCatalog', name: 'Plastic Furniture', description: 'Chairs, dining sets, center tables, stools, beds, kids furniture — Supreme, Linc & Uniko brands' },
+          { '@type': 'OfferCatalog', name: 'Home Furniture', description: 'Steel almirahs, TV units, beds, wardrobes, dressing tables, mattresses' },
+          { '@type': 'OfferCatalog', name: 'Thermowares', description: 'Insulated lunch boxes, bottles, water jugs, casseroles — Milton brand' },
+          { '@type': 'OfferCatalog', name: 'Household Essentials', description: 'Buckets, dustbins, patlas, planters, tubs' },
           { '@type': 'OfferCatalog', name: 'Carpets & Mats', description: 'Sapana carpets, door mats, floor mats, rugs' },
         ],
       },
@@ -178,9 +181,11 @@ const jsonLd = {
         'Steel Almirahs',
         'Wholesale Furniture Distribution',
         'Home Furniture',
-        'Office Furniture',
+        'Thermowares',
+        'Household Essentials',
         'Supreme Furniture',
         'Linc Furniture',
+        'Sleepwell Mattresses',
       ],
     },
     {
@@ -220,11 +225,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Script
-          id="json-ld"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="afterInteractive"
         />
       </body>
     </html>
