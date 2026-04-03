@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import Seal from './Seal';
 import { WHATSAPP_URL } from '@/lib/constants';
+import { bodyFont } from '@/lib/design';
 import { Lang, Translations } from '@/lib/translations';
 
 interface NavbarProps {
@@ -49,7 +50,7 @@ export default function Navbar({ scrolled, lang, setLang, t }: NavbarProps) {
               style={{
                 fontSize: isHi ? 15 : 13,
                 color: scrolled ? '#3c4043' : 'rgba(255,255,255,0.85)',
-                fontFamily: isHi ? "'Hind','Sora',sans-serif" : undefined,
+                fontFamily: isHi ? bodyFont(true) : undefined,
                 textTransform: isHi ? 'none' : undefined,
                 letterSpacing: isHi ? 0.3 : undefined,
               }}
@@ -158,7 +159,7 @@ export default function Navbar({ scrolled, lang, setLang, t }: NavbarProps) {
               key={NAV_IDS[i]}
               onClick={() => go(NAV_IDS[i])}
               className="py-3.5 text-[15px] font-medium text-gray-800 cursor-pointer border-b border-gray-50"
-              style={{ fontFamily: isHi ? "'Hind','Sora',sans-serif" : undefined }}
+              style={{ fontFamily: isHi ? bodyFont(true) : undefined }}
             >
               {label}
             </div>

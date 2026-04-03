@@ -1,16 +1,16 @@
 export type Lang = 'en' | 'hi';
 
 export interface StoryItem {
-  yr: string;
-  t: string;
-  d: string;
+  year: string;
+  title: string;
+  description: string;
 }
 
 export interface ReviewItem {
   name: string;
-  loc: string;
+  location: string;
   text: string;
-  r: number;
+  rating: number;
 }
 
 export interface CategoryItem {
@@ -21,14 +21,14 @@ export interface CategoryItem {
 }
 
 export interface StatItem {
-  n: string;
-  l: string;
+  value: string;
+  label: string;
 }
 
 export interface BrandItem {
   name: string;
   tagline: string;
-  cats: string[];
+  categories: string[];
 }
 
 export interface Translations {
@@ -84,10 +84,10 @@ export const translations: Record<Lang, Translations> = {
     call: 'Call Now',
     enquire: 'Enquire on WhatsApp',
     stats: [
-      { n: '30+', l: 'Years' },
-      { n: '100K+', l: 'Customers' },
-      { n: '20+', l: 'Categories' },
-      { n: '10+', l: 'Brands' },
+      { value: '30+',   label: 'Years' },
+      { value: '100K+', label: 'Customers' },
+      { value: '20+',   label: 'Categories' },
+      { value: '10+',   label: 'Brands' },
     ],
     storyTag: 'Our Journey',
     storyTitle: 'Our Story',
@@ -95,28 +95,31 @@ export const translations: Record<Lang, Translations> = {
       'From a humble workshop to Sitamarhi\u2019s wholesale furniture hub \u2014 supplying shops and serving families.',
     story: [
       {
-        yr: '1990s',
-        t: 'The Beginning',
-        d: 'Vijay ji started crafting almirahs, shutters, iron grills, and gates by hand. Honest work, solid craft \u2014 that\u2019s how it all began in Sitamarhi.',
+        year: '1990s',
+        title: 'The Beginning',
+        description:
+          'Vijay ji started crafting almirahs, shutters, iron grills, and gates by hand. Honest work, solid craft \u2014 that\u2019s how it all began in Sitamarhi.',
       },
       {
-        yr: '2000s',
-        t: 'Wholesale Begins',
-        d: 'Furniture shops across Sitamarhi and nearby towns started sourcing from Vijay ji. A trusted wholesale supply chain built on honest pricing.',
+        year: '2000s',
+        title: 'Wholesale Begins',
+        description:
+          'Furniture shops across Sitamarhi and nearby towns started sourcing from Vijay ji. A trusted wholesale supply chain built on honest pricing.',
       },
       {
-        yr: '2010s',
-        t: 'The Showroom',
-        d: 'Amit Plastic Furniture Exclusive Showroom opened \u2014 authorized wholesale distributor of Supreme, Linc Furniture & Linc Steel Almirah, with retail for all.',
+        year: '2010s',
+        title: 'The Showroom',
+        description:
+          'Amit Plastic Furniture Exclusive Showroom opened \u2014 authorized wholesale distributor of Supreme, Linc Furniture & Linc Steel Almirah, with retail for all.',
       },
       {
-        yr: 'Today',
-        t: '30+ Years Strong',
-        d: 'The go-to wholesale supplier for shops in Sitamarhi, Pupri, Riga, and beyond \u2014 with a walk-in showroom for retail customers too.',
+        year: 'Today',
+        title: '30+ Years Strong',
+        description:
+          'The go-to wholesale supplier for shops in Sitamarhi, Pupri, Riga, and beyond \u2014 with a walk-in showroom for retail customers too.',
       },
     ],
-    quote:
-      'Trust isn\u2019t built in a day \u2014 it takes years of dedication and honesty.',
+    quote: 'Trust isn\u2019t built in a day \u2014 it takes years of dedication and honesty.',
     quoteBy: '\u2014 The Amit Plastic Family',
     prodTag: 'Our Collection',
     prodTitle: 'Products',
@@ -147,7 +150,7 @@ export const translations: Record<Lang, Translations> = {
         items: ['Desks', 'Chairs', 'Conference', 'Visitors', 'Storage'],
       },
     ],
-    distrib: 'Wholesale Distributor · Authorized Dealer',
+    distrib: 'Wholesale Distributor \u00b7 Authorized Dealer',
     brandsTag: 'Authorized Brands',
     brandsTitle: 'Brands We Carry',
     brandsSub: 'Authorized wholesale dealer for India\u2019s leading furniture and household brands.',
@@ -155,52 +158,32 @@ export const translations: Record<Lang, Translations> = {
       {
         name: 'Supreme',
         tagline: 'India\u2019s #1 plastic furniture brand',
-        cats: ['Chairs', 'Tables', 'Stools', 'Outdoor', 'Storage'],
+        categories: ['Chairs', 'Tables', 'Stools', 'Outdoor', 'Storage'],
       },
       {
         name: 'Linc',
         tagline: 'Premium furniture & steel almirahs',
-        cats: ['Plastic Furniture', 'Steel Almirahs', 'Office', 'Bookshelves'],
+        categories: ['Plastic Furniture', 'Steel Almirahs', 'Office', 'Bookshelves'],
       },
       {
         name: 'Milton',
         tagline: 'Trusted household essentials',
-        cats: ['Water Bottles', 'Tiffin Boxes', 'Flasks', 'Storage Containers'],
+        categories: ['Water Bottles', 'Tiffin Boxes', 'Flasks', 'Storage Containers'],
       },
       {
         name: 'Sapana',
         tagline: 'Premium carpets & floor mats',
-        cats: ['Carpets', 'Door Mats', 'Floor Mats', 'Rugs'],
+        categories: ['Carpets', 'Door Mats', 'Floor Mats', 'Rugs'],
       },
     ],
     revTag: 'Customer Love',
     revTitle: 'Reviews',
     revSub: 'Trusted by shops and families across the district.',
     reviews: [
-      {
-        name: 'Rajesh Kumar',
-        loc: 'Sitamarhi',
-        text: 'We\u2019ve been buying from Amit Plastic for 30 years. Quality and trust \u2014 you get both here.',
-        r: 5,
-      },
-      {
-        name: 'Sunita Devi',
-        loc: 'Pupri',
-        text: 'Wonderful showroom. The best collection of Supreme chairs you\u2019ll find anywhere nearby.',
-        r: 5,
-      },
-      {
-        name: 'Md. Irfan',
-        loc: 'Sitamarhi',
-        text: 'Bought a steel almirah 10 years ago \u2014 still looks brand new. Complete trust in Vijay bhai\u2019s shop.',
-        r: 5,
-      },
-      {
-        name: 'Priya Singh',
-        loc: 'Muzaffarpur',
-        text: 'Traveled from far for office furniture. Reasonable prices and top quality. Highly recommend.',
-        r: 4,
-      },
+      { name: 'Rajesh Kumar', location: 'Sitamarhi', text: 'We\u2019ve been buying from Amit Plastic for 30 years. Quality and trust \u2014 you get both here.', rating: 5 },
+      { name: 'Sunita Devi',  location: 'Pupri',     text: 'Wonderful showroom. The best collection of Supreme chairs you\u2019ll find anywhere nearby.', rating: 5 },
+      { name: 'Md. Irfan',   location: 'Sitamarhi', text: 'Bought a steel almirah 10 years ago \u2014 still looks brand new. Complete trust in Vijay bhai\u2019s shop.', rating: 5 },
+      { name: 'Priya Singh', location: 'Muzaffarpur', text: 'Traveled from far for office furniture. Reasonable prices and top quality. Highly recommend.', rating: 4 },
     ],
     contactTag: 'Visit Us',
     contactTitle: 'Come See Us',
@@ -211,9 +194,9 @@ export const translations: Record<Lang, Translations> = {
     address: 'Address',
     hourVal: 'Mon \u2013 Sat: 9 AM \u2013 8 PM\nSunday: 10 AM \u2013 2 PM',
     openMaps: 'Open in Google Maps',
-    footerAddr:
-      'Near Mata Vaishno Mandir, Thana Road, Sitamarhi, Bihar \u2014 843302',
+    footerAddr: 'Near Mata Vaishno Mandir, Thana Road, Sitamarhi, Bihar \u2014 843302',
   },
+
   hi: {
     nav: ['\u0939\u094b\u092e', '\u0939\u092e\u093e\u0930\u0940 \u0915\u0939\u093e\u0928\u0940', '\u0909\u0924\u094d\u092a\u093e\u0926', '\u092c\u094d\u0930\u093e\u0902\u0921', '\u0938\u092e\u0940\u0915\u094d\u0937\u093e', '\u0938\u0902\u092a\u0930\u094d\u0915'],
     since: '1990 \u0938\u0947',
@@ -226,10 +209,10 @@ export const translations: Record<Lang, Translations> = {
     call: '\u0915\u0949\u0932 \u0915\u0930\u0947\u0902',
     enquire: 'WhatsApp \u092a\u0930 \u092a\u0942\u091b\u0947\u0902',
     stats: [
-      { n: '30+', l: '\u0938\u093e\u0932' },
-      { n: '100K+', l: '\u0917\u094d\u0930\u093e\u0939\u0915' },
-      { n: '20+', l: '\u0936\u094d\u0930\u0947\u0923\u093f\u092f\u093e\u0901' },
-      { n: '10+', l: '\u092c\u094d\u0930\u093e\u0902\u0921' },
+      { value: '30+',   label: '\u0938\u093e\u0932' },
+      { value: '100K+', label: '\u0917\u094d\u0930\u093e\u0939\u0915' },
+      { value: '20+',   label: '\u0936\u094d\u0930\u0947\u0923\u093f\u092f\u093e\u0901' },
+      { value: '10+',   label: '\u092c\u094d\u0930\u093e\u0902\u0921' },
     ],
     storyTag: '\u0939\u092e\u093e\u0930\u093e \u0938\u092b\u093c\u0930',
     storyTitle: '\u0939\u092e\u093e\u0930\u0940 \u0915\u0939\u093e\u0928\u0940',
@@ -237,30 +220,33 @@ export const translations: Record<Lang, Translations> = {
       '\u090f\u0915 \u091b\u094b\u091f\u0940 \u0915\u093e\u0930\u094d\u092f\u0936\u093e\u0932\u093e \u0938\u0947 \u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940 \u0915\u0947 \u092a\u094d\u0930\u092e\u0941\u0916 \u0925\u094b\u0915 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0935\u093f\u0924\u0930\u0915 \u0924\u0915 \u2014 \u0926\u0941\u0915\u093e\u0928\u094b\u0902 \u0914\u0930 \u092a\u0930\u093f\u0935\u093e\u0930\u094b\u0902 \u0915\u0940 \u0938\u0947\u0935\u093e\u0964',
     story: [
       {
-        yr: '1990s',
-        t: '\u0936\u0941\u0930\u0941\u0906\u0924',
-        d: '\u0935\u093f\u091c\u092f \u091c\u0940 \u0928\u0947 \u0905\u0932\u092e\u093e\u0930\u0940, \u0936\u091f\u0930, \u0932\u094b\u0939\u0947 \u0915\u0940 \u0917\u094d\u0930\u093f\u0932 \u0914\u0930 \u0917\u0947\u091f \u092c\u0928\u093e\u0928\u093e \u0936\u0941\u0930\u0942 \u0915\u093f\u092f\u093e\u0964 \u0908\u092e\u093e\u0928\u0926\u093e\u0930 \u0915\u093e\u092e \u0914\u0930 \u092e\u091c\u092c\u0942\u0924 \u0915\u093e\u0930\u0940\u0917\u0930\u0940 \u2014 \u092f\u0939\u0940\u0902 \u0938\u0947 \u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940 \u092e\u0947\u0902 \u0938\u092c \u0936\u0941\u0930\u0942 \u0939\u0941\u0906\u0964',
+        year: '1990s',
+        title: '\u0936\u0941\u0930\u0941\u0906\u0924',
+        description:
+          '\u0935\u093f\u091c\u092f \u091c\u0940 \u0928\u0947 \u0905\u0932\u092e\u093e\u0930\u0940, \u0936\u091f\u0930, \u0932\u094b\u0939\u0947 \u0915\u0940 \u0917\u094d\u0930\u093f\u0932 \u0914\u0930 \u0917\u0947\u091f \u092c\u0928\u093e\u0928\u093e \u0936\u0941\u0930\u0942 \u0915\u093f\u092f\u093e\u0964 \u0908\u092e\u093e\u0928\u0926\u093e\u0930 \u0915\u093e\u092e \u0914\u0930 \u092e\u091c\u092c\u0942\u0924 \u0915\u093e\u0930\u0940\u0917\u0930\u0940 \u2014 \u092f\u0939\u0940\u0902 \u0938\u0947 \u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940 \u092e\u0947\u0902 \u0938\u092c \u0936\u0941\u0930\u0942 \u0939\u0941\u0906\u0964',
       },
       {
-        yr: '2000s',
-        t: '\u0925\u094b\u0915 \u0935\u094d\u092f\u093e\u092a\u093e\u0930 \u0936\u0941\u0930\u0942',
-        d: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940 \u0914\u0930 \u0906\u0938\u092a\u093e\u0938 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928\u0947\u0902 \u0935\u093f\u091c\u092f \u091c\u0940 \u0938\u0947 \u092e\u093e\u0932 \u0932\u0947\u0928\u0947 \u0932\u0917\u0940\u0902\u0964 \u0938\u091a\u094d\u091a\u0947 \u092d\u093e\u0935 \u092a\u0930 \u0925\u094b\u0915 \u0938\u092a\u094d\u0932\u093e\u0908 \u0915\u0940 \u0928\u0940\u0902\u0935 \u092a\u0921\u093c\u0940\u0964',
+        year: '2000s',
+        title: '\u0925\u094b\u0915 \u0935\u094d\u092f\u093e\u092a\u093e\u0930 \u0936\u0941\u0930\u0942',
+        description:
+          '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940 \u0914\u0930 \u0906\u0938\u092a\u093e\u0938 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928\u0947\u0902 \u0935\u093f\u091c\u092f \u091c\u0940 \u0938\u0947 \u092e\u093e\u0932 \u0932\u0947\u0928\u0947 \u0932\u0917\u0940\u0902\u0964 \u0938\u091a\u094d\u091a\u0947 \u092d\u093e\u0935 \u092a\u0930 \u0925\u094b\u0915 \u0938\u092a\u094d\u0932\u093e\u0908 \u0915\u0940 \u0928\u0940\u0902\u0935 \u092a\u0921\u093c\u0940\u0964',
       },
       {
-        yr: '2010s',
-        t: '\u0936\u094b\u0930\u0942\u092e \u0916\u0941\u0932\u093e',
-        d: '\u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u090f\u0915\u094d\u0938\u0915\u094d\u0932\u0942\u0938\u093f\u0935 \u0936\u094b\u0930\u0942\u092e \u0936\u0941\u0930\u0942 \u2014 Supreme, Linc Furniture \u0914\u0930 Linc Steel Almirah \u0915\u093e \u0905\u0927\u093f\u0915\u0943\u0924 \u0925\u094b\u0915 \u0935\u093f\u0924\u0930\u0915, \u0930\u093f\u091f\u0947\u0932 \u0917\u094d\u0930\u093e\u0939\u0915\u094b\u0902 \u0915\u0947 \u0932\u093f\u090f \u092d\u0940\u0964',
+        year: '2010s',
+        title: '\u0936\u094b\u0930\u0942\u092e \u0916\u0941\u0932\u093e',
+        description:
+          '\u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u090f\u0915\u094d\u0938\u0915\u094d\u0932\u0942\u0938\u093f\u0935 \u0936\u094b\u0930\u0942\u092e \u0936\u0941\u0930\u0942 \u2014 Supreme, Linc Furniture \u0914\u0930 Linc Steel Almirah \u0915\u093e \u0905\u0927\u093f\u0915\u0943\u0924 \u0925\u094b\u0915 \u0935\u093f\u0924\u0930\u0915, \u0930\u093f\u091f\u0947\u0932 \u0917\u094d\u0930\u093e\u0939\u0915\u094b\u0902 \u0915\u0947 \u0932\u093f\u090f \u092d\u0940\u0964',
       },
       {
-        yr: '\u0906\u091c',
-        t: '30+ \u0938\u093e\u0932 \u092e\u091c\u092c\u0942\u0924',
-        d: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940, \u092a\u0941\u092a\u0930\u0940, \u0930\u093f\u0917\u093e \u0914\u0930 \u0906\u0938\u092a\u093e\u0938 \u0915\u0947 \u0915\u0938\u094d\u092c\u094b\u0902 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928\u094b\u0902 \u0915\u093e \u092d\u0930\u094b\u0938\u0947\u092e\u0902\u0926 \u0925\u094b\u0915 \u0938\u092a\u094d\u0932\u093e\u092f\u0930 \u2014 \u0930\u093f\u091f\u0947\u0932 \u0936\u094b\u0930\u0942\u092e \u092d\u0940 \u0916\u0941\u0932\u093e\u0964',
+        year: '\u0906\u091c',
+        title: '30+ \u0938\u093e\u0932 \u092e\u091c\u092c\u0942\u0924',
+        description:
+          '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940, \u092a\u0941\u092a\u0930\u0940, \u0930\u093f\u0917\u093e \u0914\u0930 \u0906\u0938\u092a\u093e\u0938 \u0915\u0947 \u0915\u0938\u094d\u092c\u094b\u0902 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928\u094b\u0902 \u0915\u093e \u092d\u0930\u094b\u0938\u0947\u092e\u0902\u0926 \u0925\u094b\u0915 \u0938\u092a\u094d\u0932\u093e\u092f\u0930 \u2014 \u0930\u093f\u091f\u0947\u0932 \u0936\u094b\u0930\u0942\u092e \u092d\u0940 \u0916\u0941\u0932\u093e\u0964',
       },
     ],
     quote:
       '\u092d\u0930\u094b\u0938\u093e \u090f\u0915 \u0926\u093f\u0928 \u092e\u0947\u0902 \u0928\u0939\u0940\u0902 \u092c\u0928\u0924\u093e \u2014 \u092f\u0939 \u0938\u093e\u0932\u094b\u0902 \u0915\u0940 \u092e\u0947\u0939\u0928\u0924 \u0914\u0930 \u0908\u092e\u093e\u0928\u0926\u093e\u0930\u0940 \u0938\u0947 \u092c\u0928\u0924\u093e \u0939\u0948\u0964',
-    quoteBy:
-      '\u2014 \u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092a\u0930\u093f\u0935\u093e\u0930',
+    quoteBy: '\u2014 \u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092a\u0930\u093f\u0935\u093e\u0930',
     prodTag: '\u0939\u092e\u093e\u0930\u093e \u0938\u0902\u0917\u094d\u0930\u0939',
     prodTitle: '\u0909\u0924\u094d\u092a\u093e\u0926',
     prodSub:
@@ -294,57 +280,22 @@ export const translations: Record<Lang, Translations> = {
     distrib: '\u0925\u094b\u0915 \u0935\u093f\u0924\u0930\u0915 \u00b7 \u0905\u0927\u093f\u0915\u0943\u0924 \u0921\u0940\u0932\u0930',
     brandsTag: '\u0905\u0927\u093f\u0915\u0943\u0924 \u092c\u094d\u0930\u093e\u0902\u0921',
     brandsTitle: '\u0939\u092e\u093e\u0930\u0947 \u092c\u094d\u0930\u093e\u0902\u0921',
-    brandsSub: '\u092d\u093e\u0930\u0924 \u0915\u0947 \u092a\u094d\u0930\u092e\u0941\u0916 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0914\u0930 \u0918\u0930\u0947\u0932\u0942 \u0909\u0924\u094d\u092a\u093e\u0926\u094b\u0902 \u0915\u0947 \u0905\u0927\u093f\u0915\u0943\u0924 \u0925\u094b\u0915 \u0921\u0940\u0932\u0930\u0964',
+    brandsSub:
+      '\u092d\u093e\u0930\u0924 \u0915\u0947 \u092a\u094d\u0930\u092e\u0941\u0916 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0914\u0930 \u0918\u0930\u0947\u0932\u0942 \u0909\u0924\u094d\u092a\u093e\u0926\u094b\u0902 \u0915\u0947 \u0905\u0927\u093f\u0915\u0943\u0924 \u0925\u094b\u0915 \u0921\u0940\u0932\u0930\u0964',
     brands: [
-      {
-        name: 'Supreme',
-        tagline: '\u092d\u093e\u0930\u0924 \u0915\u093e #1 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u092c\u094d\u0930\u093e\u0902\u0921',
-        cats: ['\u0915\u0941\u0930\u094d\u0938\u093f\u092f\u093e\u0901', '\u091f\u0947\u092c\u0932', '\u0938\u094d\u091f\u0942\u0932', '\u0906\u0909\u091f\u0921\u094b\u0930', '\u0938\u094d\u091f\u094b\u0930\u0947\u091c'],
-      },
-      {
-        name: 'Linc',
-        tagline: '\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0914\u0930 \u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940',
-        cats: ['\u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092b\u0930\u094d\u0928\u0940\u091a\u0930', '\u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940', '\u0911\u092b\u093f\u0938', '\u092c\u0941\u0915\u0936\u0947\u0932\u094d\u092b'],
-      },
-      {
-        name: 'Milton',
-        tagline: '\u092d\u0930\u094b\u0938\u0947\u092e\u0902\u0926 \u0918\u0930\u0947\u0932\u0942 \u0909\u0924\u094d\u092a\u093e\u0926',
-        cats: ['\u092a\u093e\u0928\u0940 \u0915\u0940 \u092c\u094b\u0924\u0932', '\u091f\u093f\u092b\u093f\u0928 \u092c\u0949\u0915\u094d\u0938', '\u092b\u094d\u0932\u093e\u0938\u094d\u0915', '\u0938\u094d\u091f\u094b\u0930\u0947\u091c'],
-      },
-      {
-        name: 'Sapana',
-        tagline: '\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u0915\u093e\u0930\u094d\u092a\u0947\u091f \u0914\u0930 \u092b\u0930\u094d\u0936 \u092e\u0948\u091f',
-        cats: ['\u0915\u093e\u0930\u094d\u092a\u0947\u091f', '\u0926\u0930\u0935\u093e\u091c\u093e \u092e\u0948\u091f', '\u092b\u0930\u094d\u0936 \u092e\u0948\u091f', '\u0930\u0917'],
-      },
+      { name: 'Supreme', tagline: '\u092d\u093e\u0930\u0924 \u0915\u093e #1 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u092c\u094d\u0930\u093e\u0902\u0921', categories: ['\u0915\u0941\u0930\u094d\u0938\u093f\u092f\u093e\u0901', '\u091f\u0947\u092c\u0932', '\u0938\u094d\u091f\u0942\u0932', '\u0906\u0909\u091f\u0921\u094b\u0930', '\u0938\u094d\u091f\u094b\u0930\u0947\u091c'] },
+      { name: 'Linc',    tagline: '\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0914\u0930 \u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940', categories: ['\u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u092b\u0930\u094d\u0928\u0940\u091a\u0930', '\u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940', '\u0911\u092b\u093f\u0938', '\u092c\u0941\u0915\u0936\u0947\u0932\u094d\u092b'] },
+      { name: 'Milton',  tagline: '\u092d\u0930\u094b\u0938\u0947\u092e\u0902\u0926 \u0918\u0930\u0947\u0932\u0942 \u0909\u0924\u094d\u092a\u093e\u0926',              categories: ['\u092a\u093e\u0928\u0940 \u0915\u0940 \u092c\u094b\u0924\u0932', '\u091f\u093f\u092b\u093f\u0928 \u092c\u0949\u0915\u094d\u0938', '\u092b\u094d\u0932\u093e\u0938\u094d\u0915', '\u0938\u094d\u091f\u094b\u0930\u0947\u091c'] },
+      { name: 'Sapana',  tagline: '\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u0915\u093e\u0930\u094d\u092a\u0947\u091f \u0914\u0930 \u092b\u0930\u094d\u0936 \u092e\u0948\u091f',            categories: ['\u0915\u093e\u0930\u094d\u092a\u0947\u091f', '\u0926\u0930\u0935\u093e\u091c\u093e \u092e\u0948\u091f', '\u092b\u0930\u094d\u0936 \u092e\u0948\u091f', '\u0930\u0917'] },
     ],
     revTag: '\u0917\u094d\u0930\u093e\u0939\u0915\u094b\u0902 \u0915\u093e \u092a\u094d\u092f\u093e\u0930',
     revTitle: '\u0938\u092e\u0940\u0915\u094d\u0937\u093e\u090f\u0901',
     revSub: '\u091c\u093f\u0932\u0947 \u092d\u0930 \u0915\u0940 \u0926\u0941\u0915\u093e\u0928\u094b\u0902 \u0914\u0930 \u092a\u0930\u093f\u0935\u093e\u0930\u094b\u0902 \u0915\u093e \u092d\u0930\u094b\u0938\u093e\u0964',
     reviews: [
-      {
-        name: '\u0930\u093e\u091c\u0947\u0936 \u0915\u0941\u092e\u093e\u0930',
-        loc: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940',
-        text: '30 \u0938\u093e\u0932 \u0938\u0947 \u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u0938\u0947 \u0939\u0940 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0932\u0947\u0924\u0947 \u0939\u0948\u0902\u0964 \u0915\u094d\u0935\u093e\u0932\u093f\u091f\u0940 \u0914\u0930 \u092d\u0930\u094b\u0938\u093e \u0926\u094b\u0928\u094b\u0902 \u092e\u093f\u0932\u0924\u093e \u0939\u0948\u0964',
-        r: 5,
-      },
-      {
-        name: '\u0938\u0941\u0928\u0940\u0924\u093e \u0926\u0947\u0935\u0940',
-        loc: '\u092a\u0941\u092a\u0930\u0940',
-        text: '\u092c\u0939\u0941\u0924 \u0905\u091a\u094d\u091b\u093e \u0936\u094b\u0930\u0942\u092e \u0939\u0948\u0964 Supreme \u0915\u0941\u0930\u094d\u0938\u093f\u092f\u094b\u0902 \u0915\u093e \u0938\u092c\u0938\u0947 \u0905\u091a\u094d\u091b\u093e \u0915\u0932\u0947\u0915\u094d\u0936\u0928 \u092f\u0939\u0940\u0902 \u092e\u093f\u0932\u0924\u093e \u0939\u0948\u0964',
-        r: 5,
-      },
-      {
-        name: '\u092e\u094b\u0939\u092e\u094d\u092e\u0926 \u0907\u0930\u092b\u093c\u093e\u0928',
-        loc: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940',
-        text: '10 \u0938\u093e\u0932 \u092a\u0939\u0932\u0947 \u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940 \u0932\u0940 \u0925\u0940, \u0906\u091c \u092d\u0940 \u0928\u090f \u091c\u0948\u0938\u0940 \u0939\u0948\u0964 \u0935\u093f\u091c\u092f \u092d\u093e\u0908 \u092a\u0930 \u092d\u0930\u094b\u0938\u093e \u0939\u0948\u0964',
-        r: 5,
-      },
-      {
-        name: '\u092a\u094d\u0930\u093f\u092f\u093e \u0938\u093f\u0902\u0939',
-        loc: '\u092e\u0941\u091c\u093c\u092b\u093c\u094d\u092b\u093c\u0930\u092a\u0941\u0930',
-        text: '\u0911\u092b\u093f\u0938 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0915\u0947 \u0932\u093f\u090f \u0926\u0942\u0930 \u0938\u0947 \u0906\u090f \u0925\u0947\u0964 \u0915\u0940\u092e\u0924 \u092d\u0940 \u0909\u091a\u093f\u0924 \u0914\u0930 \u0915\u094d\u0935\u093e\u0932\u093f\u091f\u0940 \u092c\u0947\u0938\u094d\u091f\u0964',
-        r: 4,
-      },
+      { name: '\u0930\u093e\u091c\u0947\u0936 \u0915\u0941\u092e\u093e\u0930', location: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940', text: '30 \u0938\u093e\u0932 \u0938\u0947 \u0905\u092e\u093f\u0924 \u092a\u094d\u0932\u093e\u0938\u094d\u091f\u093f\u0915 \u0938\u0947 \u0939\u0940 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0932\u0947\u0924\u0947 \u0939\u0948\u0902\u0964 \u0915\u094d\u0935\u093e\u0932\u093f\u091f\u0940 \u0914\u0930 \u092d\u0930\u094b\u0938\u093e \u0926\u094b\u0928\u094b\u0902 \u092e\u093f\u0932\u0924\u093e \u0939\u0948\u0964', rating: 5 },
+      { name: '\u0938\u0941\u0928\u0940\u0924\u093e \u0926\u0947\u0935\u0940',  location: '\u092a\u0941\u092a\u0930\u0940',          text: '\u092c\u0939\u0941\u0924 \u0905\u091a\u094d\u091b\u093e \u0936\u094b\u0930\u0942\u092e \u0939\u0948\u0964 Supreme \u0915\u0941\u0930\u094d\u0938\u093f\u092f\u094b\u0902 \u0915\u093e \u0938\u092c\u0938\u0947 \u0905\u091a\u094d\u091b\u093e \u0915\u0932\u0947\u0915\u094d\u0936\u0928 \u092f\u0939\u0940\u0902 \u092e\u093f\u0932\u0924\u093e \u0939\u0948\u0964', rating: 5 },
+      { name: '\u092e\u094b\u0939\u092e\u094d\u092e\u0926 \u0907\u0930\u092b\u093c\u093e\u0928',   location: '\u0938\u0940\u0924\u093e\u092e\u0922\u093c\u0940', text: '10 \u0938\u093e\u0932 \u092a\u0939\u0932\u0947 \u0938\u094d\u091f\u0940\u0932 \u0905\u0932\u092e\u093e\u0930\u0940 \u0932\u0940 \u0925\u0940, \u0906\u091c \u092d\u0940 \u0928\u090f \u091c\u0948\u0938\u0940 \u0939\u0948\u0964 \u0935\u093f\u091c\u092f \u092d\u093e\u0908 \u092a\u0930 \u092d\u0930\u094b\u0938\u093e \u0939\u0948\u0964', rating: 5 },
+      { name: '\u092a\u094d\u0930\u093f\u092f\u093e \u0938\u093f\u0902\u0939', location: '\u092e\u0941\u091c\u093c\u092b\u093c\u094d\u092b\u093c\u0930\u092a\u0941\u0930', text: '\u0911\u092b\u093f\u0938 \u092b\u0930\u094d\u0928\u0940\u091a\u0930 \u0915\u0947 \u0932\u093f\u090f \u0926\u0942\u0930 \u0938\u0947 \u0906\u090f \u0925\u0947\u0964 \u0915\u0940\u092e\u0924 \u092d\u0940 \u0909\u091a\u093f\u0924 \u0914\u0930 \u0915\u094d\u0935\u093e\u0932\u093f\u091f\u0940 \u092c\u0947\u0938\u094d\u091f\u0964', rating: 4 },
     ],
     contactTag: '\u0938\u0902\u092a\u0930\u094d\u0915 \u0915\u0930\u0947\u0902',
     contactTitle: '\u0939\u092e\u0938\u0947 \u092e\u093f\u0932\u0947\u0902',

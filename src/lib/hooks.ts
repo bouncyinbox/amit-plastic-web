@@ -45,17 +45,16 @@ export function useReveal(threshold = 0.1) {
 }
 
 export function useScrollState() {
-  const [scrolled, setScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [state, setState] = useState({ scrolled: false, scrollY: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-      setScrollY(window.scrollY);
+      const y = window.scrollY;
+      setState({ scrolled: y > 40, scrollY: y });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { scrolled, scrollY };
+  return state;
 }

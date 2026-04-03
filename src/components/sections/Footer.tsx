@@ -1,0 +1,177 @@
+'use client';
+
+import Seal from '@/components/Seal';
+import RatingBadges from '@/components/RatingBadges';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { WHATSAPP_URL, CALL_URL, PHONE, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS } from '@/lib/constants';
+import { bodyFont, colors } from '@/lib/design';
+import type { SectionProps } from './types';
+
+const NAV_SECTION_IDS = ['home', 'story', 'products', 'brands', 'reviews', 'contact'] as const;
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+export default function Footer({ t, isHi }: SectionProps) {
+  const navLinks = NAV_SECTION_IDS.map((id, i) => ({ id, label: t.nav[i] }));
+
+  const socialLinks = [
+    {
+      href: FACEBOOK_URL,
+      label: 'Facebook',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+        </svg>
+      ),
+    },
+    {
+      href: INDIAMART_URL,
+      label: 'IndiaMart',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 32 32" fill="currentColor">
+          <text y="24" fontSize="22" fontWeight="bold" fontFamily="Arial">IM</text>
+        </svg>
+      ),
+    },
+    {
+      href: JUSTDIAL_URL,
+      label: 'JustDial',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 32 32" fill="currentColor">
+          <text y="24" fontSize="22" fontWeight="bold" fontFamily="Arial">JD</text>
+        </svg>
+      ),
+    },
+  ];
+
+  const contactItems = [
+    { icon: '📍', value: t.addr, isLink: false },
+    { icon: '📞', value: `+91 ${PHONE}`, href: `tel:+91${PHONE}` },
+    { icon: '🕐', value: t.hourVal, isLink: false },
+  ];
+
+  return (
+    <footer className="bg-[#0f0f1a] pb-[110px] md:pb-0" style={{ fontFamily: bodyFont(isHi) }}>
+      <div className="h-px w-full" style={{ background: 'linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)' }} />
+
+      <div className="container py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+
+          {/* Col 1 — Brand + social + ratings */}
+          <div>
+            <div className="mb-4">
+              <Seal size={40} />
+            </div>
+            <p className="text-[14px] leading-[1.75] mb-6" style={{ color: colors.white55 }}>
+              {t.heroLine}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map(link => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ background: colors.white07, color: 'rgba(255,255,255,0.75)', border: `1px solid ${colors.white12}` }}
+                >
+                  {link.icon}
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-5">
+              <p className="text-[11px] tracking-[3px] uppercase font-bold mb-3" style={{ color: colors.white35 }}>
+                {isHi ? 'हमारी रेटिंग' : 'Our Ratings'}
+              </p>
+              <ErrorBoundary context="Footer/RatingBadges">
+                <RatingBadges />
+              </ErrorBoundary>
+            </div>
+          </div>
+
+          {/* Col 2 — Quick links */}
+          <div>
+            <p className="text-[11px] tracking-[3px] uppercase font-bold mb-5" style={{ color: colors.white35 }}>
+              {isHi ? 'त्वरित लिंक' : 'Quick Links'}
+            </p>
+            <ul className="space-y-3">
+              {navLinks.map(link => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => scrollTo(link.id)}
+                    className="text-[14px] font-medium transition-colors duration-200 hover:text-white text-left"
+                    style={{ color: colors.white55 }}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3 — Contact */}
+          <div>
+            <p className="text-[11px] tracking-[3px] uppercase font-bold mb-5" style={{ color: colors.white35 }}>
+              {t.contactTag}
+            </p>
+            <ul className="space-y-4">
+              {contactItems.map(({ icon, value, href }) => (
+                <li key={icon} className="flex gap-3">
+                  <span className="text-[16px] shrink-0 mt-0.5">{icon}</span>
+                  {href ? (
+                    <a href={href} className="text-[14px] hover:text-white transition-colors" style={{ color: colors.white65 }}>
+                      {value}
+                    </a>
+                  ) : (
+                    <span className="text-[14px] leading-[1.7] whitespace-pre-line" style={{ color: colors.white65 }}>
+                      {value}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex gap-2.5 mt-6">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2.5 rounded-full text-white text-center font-semibold text-[13px] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                style={{ background: colors.whatsapp }}
+              >
+                💬 WhatsApp
+              </a>
+              <a
+                href={CALL_URL}
+                className="flex-1 py-2.5 rounded-full text-white text-center font-semibold text-[13px] no-underline transition-all duration-300 hover:-translate-y-0.5"
+                style={{ background: colors.white08, border: `1px solid ${colors.white12}` }}
+              >
+                📞 {t.call}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div
+          className="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
+        >
+          <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            © {new Date().getFullYear()} Amit Plastic. All rights reserved.
+          </p>
+          <div className="flex gap-1.5">
+            {ACCENT_COLORS.map((c, i) => (
+              <div key={i} className="w-5 h-1 rounded-full" style={{ background: c, opacity: 0.6 }} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import { WHATSAPP_URL, CALL_URL, ACCENT_COLORS } from '@/lib/constants';
+import { bodyFont } from '@/lib/design';
 import { useParallax } from '@/lib/hooks';
 import { Translations } from '@/lib/translations';
 
@@ -47,7 +48,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         style={{
           opacity: heroOpacity,
           transform: `translateY(${heroOff * 0.5}px)`,
-          fontFamily: isHi ? "'Hind','Sora',sans-serif" : "'Sora',sans-serif",
+          fontFamily: bodyFont(isHi),
         }}
       >
         <div className="mt-8">
@@ -78,8 +79,8 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         <div className="animate-[scaleIn_1.2s_cubic-bezier(0.16,1,0.3,1)_0.9s_both] flex justify-center gap-[clamp(28px,7vw,64px)] mt-14 flex-wrap">
           {t.stats.map((s, i) => (
             <div key={i} className="text-center">
-              <div className="font-sora font-extrabold leading-none" style={{ fontSize: 'clamp(32px,6vw,48px)', color: ACCENT_COLORS[i], letterSpacing: -1 }}>{s.n}</div>
-              <div className="mt-1" style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontWeight: 500, letterSpacing: 0.5 }}>{s.l}</div>
+              <div className="font-sora font-extrabold leading-none" style={{ fontSize: 'clamp(32px,6vw,48px)', color: ACCENT_COLORS[i], letterSpacing: -1 }}>{s.value}</div>
+              <div className="mt-1" style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontWeight: 500, letterSpacing: 0.5 }}>{s.label}</div>
             </div>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 const JUSTDIAL_URL =
   'https://www.justdial.com/Sitamarhi/Amit-Plastic-Furniture-Exclusive-Showroom-Near-Mata-Vaishno-Mandir-Bazar/9999P6226-6226-130406154447-L8P1_BZDET';
@@ -25,9 +26,13 @@ async function fetchJustDialRating() {
             count: parseInt(agg.ratingCount ?? agg.reviewCount ?? '0', 10),
           };
         }
-      } catch {}
+      } catch (err) {
+        logger.warn('api/ratings', 'Failed to parse JSON-LD block', { message: String(err) });
+      }
     }
-  } catch {}
+  } catch (err) {
+    logger.error('api/ratings', 'Failed to fetch JustDial page', { message: String(err) });
+  }
   return { rating: '4.6', count: 32 }; // fallback
 }
 
