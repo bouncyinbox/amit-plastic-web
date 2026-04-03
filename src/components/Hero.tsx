@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { WHATSAPP_URL, CALL_URL, ACCENT_COLORS } from '@/lib/constants';
+import { WHATSAPP_URL, CALL_URL } from '@/lib/constants';
 import { bodyFont } from '@/lib/design';
 import { Translations } from '@/lib/translations';
 
+import TrustBadges from './TrustBadges';
 import img1 from '@/assets/gallery/1.jpeg';
 import img2 from '@/assets/gallery/2.jpeg';
 import img3 from '@/assets/gallery/3.jpeg';
@@ -174,33 +175,9 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
         </a>
       </div>
 
-      {/* Stats */}
-      <div className="animate-[scaleIn_1.2s_cubic-bezier(0.16,1,0.3,1)_0.8s_both] flex gap-6 lg:gap-8 mt-8 lg:mt-12 flex-wrap">
-        {t.stats.map((s, i) => (
-          <div key={s.value}>
-            <div
-              className="font-sora font-extrabold leading-none"
-              style={{
-                fontSize: 'clamp(24px,6vw,40px)',
-                color: ACCENT_COLORS[i],
-                letterSpacing: -1,
-              }}
-            >
-              {s.value}
-            </div>
-            <div
-              className="mt-1"
-              style={{
-                fontSize: 10,
-                color: 'rgba(255,255,255,0.4)',
-                fontWeight: 500,
-                letterSpacing: 0.5,
-              }}
-            >
-              {s.label}
-            </div>
-          </div>
-        ))}
+      {/* Trust badges */}
+      <div className="animate-[fadeUp_0.9s_cubic-bezier(0.16,1,0.3,1)_0.8s_both] mt-8 lg:mt-10">
+        <TrustBadges variant="dark" size="sm" />
       </div>
     </div>
   );
