@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git -C /Users/nimbu/Documents/Dev/amit-plastic-website diff HEAD src/components/Navbar.tsx)"
+      "Bash(git -C /Users/nimbu/Documents/Dev/amit-plastic-website diff HEAD src/components/Navbar.tsx)",
+      "Bash(ls /Users/nimbu/Documents/Dev/amit-plastic-website/src/app/icon* /Users/nimbu/Documents/Dev/amit-plastic-website/src/app/apple* /Users/nimbu/Documents/Dev/amit-plastic-website/public/favicon*)"
     ]
   }
 }
