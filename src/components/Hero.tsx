@@ -189,7 +189,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
       style={{ background: '#1a1a2e', opacity: heroOpacity }}
     >
       {/* ===== MOBILE LAYOUT: image on top, text below ===== */}
-      <div className="lg:hidden">
+      <div className="lg:hidden pt-5">
         {/* Image carousel — takes top portion */}
         <div className="relative w-full" style={{ height: '45vh', minHeight: 280 }}>
           {carousel}
@@ -202,7 +202,7 @@ export default function Hero({ t, isHi, scrollY }: HeroProps) {
       </div>
 
       {/* ===== DESKTOP LAYOUT: side by side ===== */}
-      <div className="hidden lg:flex min-h-screen">
+      <div className="hidden lg:flex min-h-screen pt-10">
         {/* Left panel — text */}
         <div
           className="relative z-10 flex flex-col justify-center px-16 xl:px-20 w-[45%] xl:w-[42%] shrink-0"
