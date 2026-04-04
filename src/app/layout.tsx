@@ -139,8 +139,8 @@ const jsonLd = {
       ],
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: process.env.GOOGLE_RATING ?? '4.5',
-        reviewCount: process.env.GOOGLE_REVIEW_COUNT ?? '80',
+        ratingValue: process.env.GOOGLE_RATING ?? '4.6',
+        reviewCount: process.env.GOOGLE_REVIEW_COUNT ?? '27',
         bestRating: '5',
         worstRating: '1',
       },

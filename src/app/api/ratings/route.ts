@@ -43,7 +43,7 @@ async function fetchGoogleRating() {
   const placeId = process.env.GOOGLE_PLACE_ID ?? 'ChIJwejOrf7x7DkR9FLgw_3ItNY';
 
   if (!apiKey) {
-    return { rating: process.env.GOOGLE_RATING ?? '4.5', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '80', 10) };
+    return { rating: process.env.GOOGLE_RATING ?? '4.6', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '27', 10) };
   }
 
   try {
@@ -61,7 +61,7 @@ async function fetchGoogleRating() {
     logger.error('api/ratings', 'Failed to fetch Google rating', { message: String(err) });
   }
 
-  return { rating: process.env.GOOGLE_RATING ?? '4.5', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '80', 10) };
+  return { rating: process.env.GOOGLE_RATING ?? '4.6', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '27', 10) };
 }
 
 export async function GET() {
