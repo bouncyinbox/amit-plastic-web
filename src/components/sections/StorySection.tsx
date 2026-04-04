@@ -22,7 +22,7 @@ const TIMELINE_ICONS = [
 export default function StorySection({ t, isHi }: SectionProps) {
   const [quoteRef, quoteOff] = useParallax(0.15);
   const ratings = useRatings();
-  const googleRating = ratings?.google?.rating ?? '4.5';
+  const googleRating = ratings?.google?.rating ?? '4.6';
 
   return (
     <section

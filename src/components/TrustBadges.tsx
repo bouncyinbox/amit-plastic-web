@@ -90,7 +90,7 @@ export default function TrustBadges({ variant = 'dark', size = 'md', isHi = fals
   const isDark = variant === 'dark';
   const isSm = size === 'sm';
   const ratings = useRatings();
-  const googleRating = ratings?.google?.rating ?? '4.5';
+  const googleRating = ratings?.google?.rating ?? '4.6';
 
   return (
     <div className={`grid grid-cols-2 ${isSm ? 'gap-x-5 gap-y-4' : 'gap-x-6 gap-y-5 lg:gap-x-8 lg:grid-cols-3'}`}>
