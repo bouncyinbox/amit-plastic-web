@@ -13,7 +13,7 @@ export interface GoogleReview {
 
 /** Shown when the Places API key is absent or to supplement few live reviews. */
 const FALLBACK_REVIEWS: GoogleReview[] = [
-  { name: 'Rajesh Kumar',  rating: 5, text: "We've been buying from Amit Plastic for 30 years. Quality and trust — you get both here.",  relativeTime: 'a year ago' },
+  { name: 'Rajesh Kumar',  rating: 5, text: "We've been buying from Amit Plastic for 20 years. Quality and trust — you get both here.",  relativeTime: 'a year ago' },
   { name: 'Sunita Devi',   rating: 5, text: 'Best furniture showroom in Sitamarhi. Huge variety and honest pricing.',                     relativeTime: '8 months ago' },
   { name: 'Manoj Singh',   rating: 4, text: 'Great wholesale rates. I stock my shop from here every season.',                             relativeTime: '6 months ago' },
   { name: 'Priya Sharma',  rating: 5, text: 'Authorized Supreme and Linc dealer — always genuine products. Highly recommended.',          relativeTime: '3 months ago' },

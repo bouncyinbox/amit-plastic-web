@@ -84,7 +84,7 @@ export const translations: Record<Lang, Translations> = {
     call: 'Call Now',
     enquire: 'Enquire on WhatsApp',
     stats: [
-      { value: '30+',   label: 'Years' },
+      { value: '20+',   label: 'Years' },
       { value: '100K+', label: 'Customers' },
       { value: '20+',   label: 'Categories' },
       { value: '10+',   label: 'Brands' },
@@ -206,7 +206,7 @@ export const translations: Record<Lang, Translations> = {
     revTitle: 'Reviews',
     revSub: 'Trusted by shops and families across the district.',
     reviews: [
-      { name: 'Rajesh Kumar', location: 'Sitamarhi', text: 'We\u2019ve been buying from Amit Plastic for 30 years. Quality and trust \u2014 you get both here.', rating: 5 },
+      { name: 'Rajesh Kumar', location: 'Sitamarhi', text: 'We\u2019ve been buying from Amit Plastic for 20 years. Quality and trust \u2014 you get both here.', rating: 5 },
       { name: 'Sunita Devi',  location: 'Pupri',     text: 'Wonderful showroom. The best collection of Supreme chairs you\u2019ll find anywhere nearby.', rating: 5 },
       { name: 'Md. Irfan',   location: 'Sitamarhi', text: 'Bought a steel almirah 10 years ago \u2014 still looks brand new. Complete trust in Vijay bhai\u2019s shop.', rating: 5 },
       { name: 'Priya Singh', location: 'Muzaffarpur', text: 'Traveled from far for office furniture. Reasonable prices and top quality. Highly recommend.', rating: 4 },
@@ -235,7 +235,7 @@ export const translations: Record<Lang, Translations> = {
     call: '\u0915\u0949\u0932 \u0915\u0930\u0947\u0902',
     enquire: 'WhatsApp \u092a\u0930 \u092a\u0942\u091b\u0947\u0902',
     stats: [
-      { value: '30+',   label: '\u0938\u093e\u0932' },
+      { value: '20+',   label: '\u0938\u093e\u0932' },
       { value: '100K+', label: '\u0917\u094d\u0930\u093e\u0939\u0915' },
       { value: '20+',   label: '\u0936\u094d\u0930\u0947\u0923\u093f\u092f\u093e\u0901' },
       { value: '10+',   label: '\u092c\u094d\u0930\u093e\u0902\u0921' },
