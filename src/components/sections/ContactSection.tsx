@@ -2,7 +2,7 @@
 
 import { Anim, ScaleIn } from '@/components/Animations';
 import SectionHeader from '@/components/SectionHeader';
-import { WHATSAPP_URL, CALL_URL, MAPS_LINK, MAPS_EMBED, PHONE } from '@/lib/constants';
+import { WHATSAPP_URL, CALL_URL, MAPS_LINK, MAPS_EMBED, PHONE, EMAIL } from '@/lib/constants';
 import { bodyFont, colors } from '@/lib/design';
 import type { SectionProps } from './types';
 
@@ -10,6 +10,7 @@ export default function ContactSection({ t, isHi }: SectionProps) {
   const contactDetails = [
     { icon: '📍', label: t.address, value: t.addr },
     { icon: '📞', label: t.phone,   value: `+91 ${PHONE}` },
+    { icon: '✉️', label: isHi ? 'ईमेल' : 'Email', value: EMAIL },
     { icon: '🕐', label: t.hours,   value: t.hourVal },
   ];
 

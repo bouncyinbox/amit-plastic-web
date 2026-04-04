@@ -36,15 +36,36 @@ async function fetchJustDialRating() {
   return { rating: '4.6', count: 32 }; // fallback
 }
 
+async function fetchGoogleRating() {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  const placeId = process.env.GOOGLE_PLACE_ID ?? 'ChIJwejOrf7x7DkR9FLgw_3ItNY';
+
+  if (!apiKey) {
+    return { rating: process.env.GOOGLE_RATING ?? '4.5', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '80', 10) };
+  }
+
+  try {
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,user_ratings_total&key=${apiKey}`;
+    const res = await fetch(url, { next: { revalidate: 86400 } });
+    const data = await res.json();
+
+    if (data.status === 'OK' && data.result) {
+      return {
+        rating: (data.result.rating ?? 4.5).toFixed(1),
+        count: data.result.user_ratings_total ?? 0,
+      };
+    }
+  } catch (err) {
+    logger.error('api/ratings', 'Failed to fetch Google rating', { message: String(err) });
+  }
+
+  return { rating: process.env.GOOGLE_RATING ?? '4.5', count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '80', 10) };
+}
+
 export async function GET() {
   const justdial = await fetchJustDialRating();
 
-  // Google Maps rating: set GOOGLE_RATING and GOOGLE_REVIEW_COUNT env vars
-  // to pull live data (requires Google Places API), otherwise uses fallback.
-  const google = {
-    rating: process.env.GOOGLE_RATING ?? '4.5',
-    count: parseInt(process.env.GOOGLE_REVIEW_COUNT ?? '80', 10),
-  };
+  const google = await fetchGoogleRating();
 
   return NextResponse.json({ justdial, google });
 }

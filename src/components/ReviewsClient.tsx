@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Anim } from './Animations';
 import { logger } from '@/lib/logger';
 import { colors } from '@/lib/design';
@@ -36,6 +36,15 @@ const AVATAR_GRADIENTS = [
 ];
 
 function ReviewCard({ review, index }: { review: GoogleReview; index: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const [clamped, setClamped] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const el = textRef.current;
+    if (el) setClamped(el.scrollHeight > el.clientHeight + 1);
+  }, [review.text]);
+
   const initials = review.name
     .split(' ')
     .map(w => w[0])
@@ -45,33 +54,45 @@ function ReviewCard({ review, index }: { review: GoogleReview; index: number }) 
 
   return (
     <Anim delay={index * 0.1} className="h-full">
-      <div className="h-full flex flex-col bg-white rounded-[20px] p-7 border border-gray-100 transition-all duration-400 relative overflow-hidden hover:border-gray-200 hover:shadow-lg before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-gradient-to-r before:from-brand-blue before:via-brand-red before:via-brand-yellow before:to-brand-green before:scale-x-0 before:transition-transform before:duration-400 before:origin-left hover:before:scale-x-100">
-        <StarRow rating={review.rating} />
-
-        <p className="text-[14px] leading-[1.75] text-gray-700 my-3.5 italic font-light flex-1">
-          &ldquo;{review.text}&rdquo;
-        </p>
-
-        <div className="flex items-center gap-2.5 mt-auto">
+      <div className="h-full flex flex-col bg-white rounded-[16px] p-5 border border-gray-100 transition-all duration-400 relative overflow-hidden hover:border-gray-200 hover:shadow-lg before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-gradient-to-r before:from-brand-blue before:via-brand-red before:via-brand-yellow before:to-brand-green before:scale-x-0 before:transition-transform before:duration-400 before:origin-left hover:before:scale-x-100">
+        <div className="flex items-center gap-2.5 mb-3">
           {review.photoUrl ? (
             <img
               src={review.photoUrl}
               alt={review.name}
-              className="w-9 h-9 rounded-full object-cover"
+              className="w-8 h-8 rounded-full object-cover"
               referrerPolicy="no-referrer"
             />
           ) : (
-            <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length]} text-white flex items-center justify-center font-bold text-[13px]`}>
+            <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${AVATAR_GRADIENTS[index % AVATAR_GRADIENTS.length]} text-white flex items-center justify-center font-bold text-[12px]`}>
               {initials}
             </div>
           )}
-          <div>
-            <p className="text-[13px] font-semibold text-[#1a1a2e]">{review.name}</p>
-            <p className="text-[11px] text-gray-500 font-medium flex items-center gap-1">
+          <div className="flex-1 min-w-0">
+            <p className="text-[13px] font-semibold text-[#1a1a2e] truncate">{review.name}</p>
+            <p className="text-[10px] text-gray-400 font-medium flex items-center gap-1">
               <GoogleIcon />
-              Google · {review.relativeTime}
+              {review.relativeTime}
             </p>
           </div>
+          <StarRow rating={review.rating} />
+        </div>
+
+        <div className="flex-1">
+          <p
+            ref={textRef}
+            className={`text-[13px] leading-[1.7] text-gray-600 font-light ${expanded ? '' : 'line-clamp-3'}`}
+          >
+            {review.text}
+          </p>
+          {clamped && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-[12px] font-semibold text-brand-blue mt-1 hover:underline"
+            >
+              {expanded ? 'Show less' : 'Show more'}
+            </button>
+          )}
         </div>
       </div>
     </Anim>
@@ -121,8 +142,8 @@ export default function ReviewsClient() {
 
   if (reviews === null) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {[0, 1, 2, 3].map(i => <SkeletonCard key={i} />)}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[0, 1, 2, 3, 4, 5].map(i => <SkeletonCard key={i} />)}
       </div>
     );
   }
@@ -130,7 +151,7 @@ export default function ReviewsClient() {
   if (reviews.length === 0) return null;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {reviews.map((review, i) => (
         <ReviewCard key={`${review.name}-${i}`} review={review} index={i} />
       ))}

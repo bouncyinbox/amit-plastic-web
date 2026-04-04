@@ -87,7 +87,7 @@ export default function OGImage() {
               marginTop: 4,
             }}
           >
-            Sitamarhi, Bihar • Since 1990
+            Sitamarhi, Bihar • Since 2002
           </div>
 
           {/* Brands strip */}

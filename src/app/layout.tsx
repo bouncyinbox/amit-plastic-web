@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Amit Plastic Sitamarhi',
   },
   description:
-    'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture. Plastic chairs, steel almirahs, home & office furniture. Visit us near Mata Vaishno Mandir, Thana Road, Sitamarhi — 843302, Bihar.',
+    'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares. Plastic chairs, steel almirahs, home furniture & more. Visit us near Mata Vaishno Mandir, Thana Road, Sitamarhi — 843302, Bihar.',
   keywords: [
     'furniture showroom Sitamarhi',
     'Amit Plastic Sitamarhi',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'furniture shop near Mata Vaishno Mandir Sitamarhi',
     'office furniture Sitamarhi',
     'home furniture Bihar',
-    'Milton furniture Sitamarhi',
+    'Milton thermoware Sitamarhi',
     'Sapana carpet Sitamarhi',
     'furniture wholesale distributor Bihar',
     'furniture dealer Sitamarhi',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: 'Amit Plastic',
     title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
     description:
-      'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture. Plastic chairs, steel almirahs, home & office furniture.',
+      'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares. Plastic chairs, steel almirahs, home furniture & more.',
     images: [
       {
         url: '/opengraph-image',
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
     description:
-      'Sitamarhi\'s largest furniture showroom since 1990. Authorized wholesale distributor of Supreme, Linc & Milton furniture.',
+      'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -106,10 +106,11 @@ const jsonLd = {
       name: 'Amit Plastic Furniture Exclusive Showroom',
       alternateName: ['Amit Plastic', 'Amit Plastic Sitamarhi'],
       description:
-        "Sitamarhi's largest furniture showroom and wholesale distributor since 1990. Authorized dealer of Supreme, Linc, Milton furniture and Sapana carpets.",
+        "Sitamarhi's largest furniture showroom and wholesale distributor since 2002. Authorized dealer of Supreme, Linc furniture, Milton thermowares and Sapana carpets.",
       url: BASE_URL,
       telephone: '+919835242431',
-      foundingDate: '1990',
+      email: 'amitplasticstm@gmail.com',
+      foundingDate: '2002',
       founder: { '@type': 'Person', name: 'Vijay' },
       priceRange: '₹₹',
       currenciesAccepted: 'INR',
@@ -138,8 +139,8 @@ const jsonLd = {
       ],
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: '4.5',
-        reviewCount: '80',
+        ratingValue: process.env.GOOGLE_RATING ?? '4.5',
+        reviewCount: process.env.GOOGLE_REVIEW_COUNT ?? '80',
         bestRating: '5',
         worstRating: '1',
       },
@@ -193,7 +194,7 @@ const jsonLd = {
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'Amit Plastic',
-      description: "Sitamarhi's leading furniture showroom and wholesale distributor since 1990.",
+      description: "Sitamarhi's leading furniture showroom and wholesale distributor since 2002.",
       inLanguage: ['en-IN', 'hi-IN'],
       publisher: { '@id': `${BASE_URL}/#business` },
       potentialAction: {

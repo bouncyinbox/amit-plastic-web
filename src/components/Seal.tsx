@@ -18,7 +18,7 @@ export default function Seal({ size = 48, dark = false }: SealProps) {
       viewBox="0 0 200 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Amit Plastic — Since 1990"
+      aria-label="Amit Plastic — Since 2002"
     >
       {/* Brand name */}
       <text
@@ -36,7 +36,7 @@ export default function Seal({ size = 48, dark = false }: SealProps) {
       {/* Accent bar */}
       <rect x="0" y="37" width="28" height="2" rx="1" fill={accentColor} />
 
-      {/* Since 1990 */}
+      {/* Since 2002 */}
       <text
         x="35"
         y="45"
@@ -46,7 +46,7 @@ export default function Seal({ size = 48, dark = false }: SealProps) {
         fill={subColor}
         letterSpacing="2.5"
       >
-        SINCE 1990
+        SINCE 2002
       </text>
     </svg>
   );

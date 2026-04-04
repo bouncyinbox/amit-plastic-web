@@ -63,3 +63,34 @@ export function useScrollState() {
 
   return state;
 }
+
+export interface RatingsData {
+  google: { rating: string; count: number };
+  justdial: { rating: string; count: number };
+}
+
+// Module-level cache — shared across all components, fetched once per page load
+let ratingsCache: RatingsData | null = null;
+let ratingsFetchPromise: Promise<RatingsData | null> | null = null;
+
+function fetchRatingsOnce(): Promise<RatingsData | null> {
+  if (ratingsCache) return Promise.resolve(ratingsCache);
+  if (!ratingsFetchPromise) {
+    ratingsFetchPromise = fetch('/api/ratings')
+      .then(r => r.json())
+      .then((data: RatingsData) => { ratingsCache = data; return data; })
+      .catch(() => null);
+  }
+  return ratingsFetchPromise;
+}
+
+export function useRatings() {
+  const [ratings, setRatings] = useState<RatingsData | null>(ratingsCache);
+
+  useEffect(() => {
+    if (ratingsCache) { setRatings(ratingsCache); return; }
+    fetchRatingsOnce().then(data => { if (data) setRatings(data); });
+  }, []);
+
+  return ratings;
+}

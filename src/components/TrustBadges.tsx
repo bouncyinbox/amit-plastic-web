@@ -1,5 +1,7 @@
 'use client';
 
+import { useRatings } from '@/lib/hooks';
+
 interface TrustBadgesProps {
   variant?: 'light' | 'dark';
   size?: 'sm' | 'md';
@@ -23,13 +25,13 @@ const badges = [
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
-        <text x="12" y="16" textAnchor="middle" fill="currentColor" stroke="none" fontSize="10" fontWeight="700" fontFamily="sans-serif">35</text>
+        <text x="12" y="16" textAnchor="middle" fill="currentColor" stroke="none" fontSize="10" fontWeight="700" fontFamily="sans-serif">20</text>
       </svg>
     ),
-    label: 'Est. 1990',
-    labelHi: '\u0938\u094d\u0925\u093e\u092a\u0928\u093e 1990',
-    sub: '35+ Years of Trust',
-    subHi: '35+ \u0938\u093e\u0932 \u0915\u093e \u092d\u0930\u094b\u0938\u093e',
+    label: 'Est. 2002',
+    labelHi: '\u0938\u094d\u0925\u093e\u092a\u0928\u093e 2002',
+    sub: '20+ Years of Trust',
+    subHi: '20+ \u0938\u093e\u0932 \u0915\u093e \u092d\u0930\u094b\u0938\u093e',
   },
   {
     icon: (
@@ -37,8 +39,8 @@ const badges = [
         <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
       </svg>
     ),
-    label: '4.5\u2605 Rated',
-    labelHi: '4.5\u2605 \u0930\u0947\u091f\u093f\u0902\u0917',
+    label: '__RATING__',
+    labelHi: '__RATING_HI__',
     sub: 'Google Reviews',
     subHi: '\u0917\u0942\u0917\u0932 \u0930\u093f\u0935\u094d\u092f\u0942',
   },
@@ -87,10 +89,17 @@ const badges = [
 export default function TrustBadges({ variant = 'dark', size = 'md', isHi = false }: TrustBadgesProps) {
   const isDark = variant === 'dark';
   const isSm = size === 'sm';
+  const ratings = useRatings();
+  const googleRating = ratings?.google?.rating ?? '4.5';
 
   return (
     <div className={`grid grid-cols-2 ${isSm ? 'gap-x-5 gap-y-4' : 'gap-x-6 gap-y-5 lg:gap-x-8 lg:grid-cols-3'}`}>
-      {badges.map((b) => (
+      {badges.map((b) => {
+        const label = b.label === '__RATING__' ? `${googleRating}★ Rated` : (isHi ? b.labelHi : b.label);
+        const labelHi = b.labelHi === '__RATING_HI__' ? `${googleRating}★ रेटिंग` : (isHi ? b.labelHi : b.label);
+        const displayLabel = isHi ? labelHi : label;
+
+        return (
         <div
           key={b.label}
           className="flex items-center gap-3 min-w-0"
@@ -115,7 +124,7 @@ export default function TrustBadges({ variant = 'dark', size = 'md', isHi = fals
                 color: isDark ? 'rgba(255,255,255,0.85)' : '#1a1a2e',
               }}
             >
-              {isHi ? b.labelHi : b.label}
+              {displayLabel}
             </div>
             <div
               style={{
@@ -128,7 +137,8 @@ export default function TrustBadges({ variant = 'dark', size = 'md', isHi = fals
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

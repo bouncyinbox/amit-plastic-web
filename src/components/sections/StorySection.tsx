@@ -3,7 +3,7 @@
 import React from 'react';
 import { Anim } from '@/components/Animations';
 import SectionHeader from '@/components/SectionHeader';
-import { useParallax } from '@/lib/hooks';
+import { useParallax, useRatings } from '@/lib/hooks';
 import { ACCENT_COLORS } from '@/lib/constants';
 import { bodyFont } from '@/lib/design';
 import type { SectionProps } from './types';
@@ -21,6 +21,8 @@ const TIMELINE_ICONS = [
 
 export default function StorySection({ t, isHi }: SectionProps) {
   const [quoteRef, quoteOff] = useParallax(0.15);
+  const ratings = useRatings();
+  const googleRating = ratings?.google?.rating ?? '4.5';
 
   return (
     <section
@@ -128,7 +130,7 @@ export default function StorySection({ t, isHi }: SectionProps) {
               {/* Mini stats */}
               <div className="flex gap-6 sm:gap-8 shrink-0">
                 <div className="text-center">
-                  <p className="font-sora font-bold text-white text-[22px] leading-none">30+</p>
+                  <p className="font-sora font-bold text-white text-[22px] leading-none">20+</p>
                   <p className="text-[10px] font-medium tracking-wide mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>
                     {isHi ? 'साल' : 'Years'}
                   </p>
@@ -140,7 +142,7 @@ export default function StorySection({ t, isHi }: SectionProps) {
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="font-sora font-bold text-[22px] leading-none" style={{ color: '#fbbc04' }}>4.5★</p>
+                  <p className="font-sora font-bold text-[22px] leading-none" style={{ color: '#fbbc04' }}>{googleRating}★</p>
                   <p className="text-[10px] font-medium tracking-wide mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>
                     {isHi ? 'रेटिंग' : 'Rated'}
                   </p>

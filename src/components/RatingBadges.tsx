@@ -1,9 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-interface Rating { rating: string; count: number }
-interface Ratings { justdial: Rating; google: Rating }
+import { useRatings } from '@/lib/hooks';
 
 function StarRating({ value }: { value: number }) {
   return (
@@ -65,14 +62,7 @@ function Badge({ platform, logo, rating, count, href, accentColor }: {
 }
 
 export default function RatingBadges() {
-  const [ratings, setRatings] = useState<Ratings | null>(null);
-
-  useEffect(() => {
-    fetch('/api/ratings')
-      .then(r => r.json())
-      .then(setRatings)
-      .catch(() => {});
-  }, []);
+  const ratings = useRatings();
 
   if (!ratings) {
     return (
