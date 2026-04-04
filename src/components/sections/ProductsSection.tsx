@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Anim, ScaleIn } from '@/components/Animations';
 import SectionHeader from '@/components/SectionHeader';
-import { WHATSAPP_URL, ACCENT_COLORS, CATEGORY_ICONS, CATEGORY_GRADIENTS } from '@/lib/constants';
+import { WHATSAPP_URL, CATEGORY_ICONS } from '@/lib/constants';
 import { PRODUCT_IMAGES } from '@/lib/product-images';
 import { bodyFont } from '@/lib/design';
 import type { SectionProps } from './types';
@@ -27,21 +27,39 @@ export default function ProductsSection({ t, isHi }: SectionProps) {
 
         {/* Category tabs */}
         <Anim delay={0.1}>
-          <div className="flex gap-2.5 justify-center flex-wrap mb-11">
-            {t.cats.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCatId(cat.id)}
-                className={`px-7 py-3 rounded-full text-[13px] font-semibold font-sora whitespace-nowrap transition-all duration-400 border-none ${
-                  activeCatId === cat.id
-                    ? 'bg-brand-blue text-white shadow-lg -translate-y-0.5'
-                    : 'bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-brand-blue hover:-translate-y-0.5'
-                }`}
-                style={{ letterSpacing: 0.3 }}
-              >
-                {cat.name}
-              </button>
-            ))}
+          <div className="flex gap-0 justify-center mb-11 mx-auto max-w-fit rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 max-md:flex-wrap max-md:rounded-xl">
+            {t.cats.map((cat, i) => {
+              const isActive = activeCatId === cat.id;
+              const icon = CATEGORY_ICONS[cat.id] ?? '📦';
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCatId(cat.id)}
+                  className={`relative flex items-center gap-2 px-5 py-3.5 max-md:px-4 max-md:py-3 text-[13px] font-semibold font-sora whitespace-nowrap transition-all duration-300 border-none max-md:flex-1 max-md:justify-center ${
+                    isActive
+                      ? 'bg-brand-blue text-white'
+                      : 'bg-transparent text-gray-800 hover:bg-white hover:text-brand-blue'
+                  }`}
+                  style={{ letterSpacing: 0.2 }}
+                >
+                  <span className="text-[15px]">{icon}</span>
+                  <span>{cat.name}</span>
+                  <span
+                    className={`ml-0.5 text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none ${
+                      isActive
+                        ? 'bg-white/20 text-white'
+                        : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    {cat.items.length}
+                  </span>
+                  {/* Divider between tabs (not after last) */}
+                  {!isActive && i < t.cats.length - 1 && (
+                    <div className="absolute right-0 top-1/4 bottom-1/4 w-px bg-gray-200 max-md:hidden" />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </Anim>
 

@@ -16,6 +16,8 @@ export const CATEGORY_ICONS: Record<string, string> = {
   steel: '🗄️',
   home: '🛋️',
   office: '💼',
+  thermoware: '🍱',
+  household: '🪣',
 };
 
 export const CATEGORY_GRADIENTS: Record<string, string> = {
