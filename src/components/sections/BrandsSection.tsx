@@ -30,7 +30,7 @@ export default function BrandsSection({ t, isHi }: SectionProps) {
       </div>
 
       <div className="container">
-        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3.5 sm:gap-4">
           {t.brands.map((brand, i) => {
             const accentColor = BRAND_COLORS[brand.name] ?? ACCENT_COLORS[i % ACCENT_COLORS.length];
             const logoUrl = BRAND_LOGO_URLS[brand.name];
@@ -38,14 +38,14 @@ export default function BrandsSection({ t, isHi }: SectionProps) {
             return (
               <div
                 key={brand.name}
-                className="flex items-center justify-center bg-white rounded-xl sm:rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300 w-[130px] h-[80px] sm:w-[180px] sm:h-[110px]"
+                className="flex items-center justify-center bg-white rounded-xl sm:rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all duration-300 w-full h-[90px] sm:w-[180px] sm:h-[110px]"
                 style={{ borderTop: `3px solid ${accentColor}` }}
               >
                 {logoUrl && (
                   <img
                     src={logoUrl}
                     alt={`${brand.name} logo`}
-                    className="max-h-[38px] max-w-[100px] sm:max-h-[56px] sm:max-w-[140px] object-contain"
+                    className="max-h-[44px] max-w-[120px] sm:max-h-[56px] sm:max-w-[140px] object-contain"
                   />
                 )}
               </div>
