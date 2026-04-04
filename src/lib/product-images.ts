@@ -24,6 +24,8 @@ import dustbins from '@/assets/household-essentials/dustbins.png';
 import patlas from '@/assets/household-essentials/patlas.png';
 import planters from '@/assets/household-essentials/planters.png';
 import tubs from '@/assets/household-essentials/tubs.png';
+import chataiMats from '@/assets/household-essentials/chatai-mats.jpeg';
+import doorMats from '@/assets/household-essentials/door-mats.jpeg';
 
 /** Maps item index within each category to an image. Key: "categoryId-index" */
 export const PRODUCT_IMAGES: Record<string, string> = {
@@ -50,4 +52,6 @@ export const PRODUCT_IMAGES: Record<string, string> = {
   'household-2': patlas.src,
   'household-3': planters.src,
   'household-4': tubs.src,
+  'household-5': chataiMats.src,
+  'household-6': doorMats.src,
 };
