@@ -1,4 +1,7 @@
 export const PHONE = '9835242431';
+export const PHONE_2 = '7654957236';
+export const PHONE_3 = '9471805297';
+export const PHONES = [PHONE, PHONE_2, PHONE_3] as const;
 export const EMAIL = 'amitplasticstm@gmail.com';
 export const WHATSAPP_URL = `https://wa.me/91${PHONE}?text=Hi%2C%20I%20visited%20your%20website.%20I'm%20interested%20in%20furniture.`;
 export const CALL_URL = `tel:+91${PHONE}`;

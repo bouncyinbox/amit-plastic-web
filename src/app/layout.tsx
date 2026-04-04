@@ -108,7 +108,7 @@ const jsonLd = {
       description:
         "Sitamarhi's largest furniture showroom and wholesale distributor since 2002. Authorized dealer of Supreme, Linc furniture, Milton thermowares and Sapana carpets.",
       url: BASE_URL,
-      telephone: '+919835242431',
+      telephone: ['+919835242431', '+917654957236', '+919471805297'],
       email: 'amitplasticstm@gmail.com',
       foundingDate: '2002',
       founder: { '@type': 'Person', name: 'Vijay' },

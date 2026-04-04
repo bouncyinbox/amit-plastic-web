@@ -3,7 +3,7 @@
 import Seal from '@/components/Seal';
 import RatingBadges from '@/components/RatingBadges';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { WHATSAPP_URL, CALL_URL, PHONE, EMAIL, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS } from '@/lib/constants';
+import { WHATSAPP_URL, CALL_URL, PHONES, EMAIL, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS } from '@/lib/constants';
 import { bodyFont, colors } from '@/lib/design';
 import type { SectionProps } from './types';
 
@@ -46,11 +46,11 @@ export default function Footer({ t, isHi }: SectionProps) {
     },
   ];
 
-  const contactItems = [
-    { icon: '📍', value: t.addr, isLink: false },
-    { icon: '📞', value: `+91 ${PHONE}`, href: `tel:+91${PHONE}` },
+  const contactItems: { icon: string; value: string; href?: string }[] = [
+    { icon: '📍', value: t.addr },
+    ...PHONES.map(p => ({ icon: '📞', value: `+91 ${p}`, href: `tel:+91${p}` })),
     { icon: '✉️', value: EMAIL, href: `mailto:${EMAIL}` },
-    { icon: '🕐', value: t.hourVal, isLink: false },
+    { icon: '🕐', value: t.hourVal },
   ];
 
   return (
