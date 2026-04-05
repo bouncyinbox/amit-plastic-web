@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import type { RatingsData, GoogleReview } from '@/lib/types';
 
 export function useParallax(speed = 0.3) {
   const ref = useRef<HTMLElement>(null);
@@ -64,10 +65,7 @@ export function useScrollState() {
   return state;
 }
 
-export interface RatingsData {
-  google: { rating: string; count: number };
-  justdial: { rating: string; count: number };
-}
+export type { RatingsData, GoogleReview } from '@/lib/types';
 
 // ─── localStorage cache helper ───
 const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
@@ -101,7 +99,7 @@ function fetchRatingsOnce(): Promise<RatingsData | null> {
     ratingsFetchPromise = fetch('/api/ratings')
       .then(r => r.json())
       .then((data: RatingsData) => { ratingsCache = data; setCache('ap_ratings', data); return data; })
-      .catch(() => null);
+      .catch(() => { ratingsFetchPromise = null; return null; });
   }
   return ratingsFetchPromise;
 }
@@ -118,14 +116,6 @@ export function useRatings() {
 }
 
 // ─── Reviews ───
-export interface GoogleReview {
-  name: string;
-  rating: number;
-  text: string;
-  relativeTime: string;
-  photoUrl?: string;
-}
-
 let reviewsCache: GoogleReview[] | null = null;
 let reviewsFetchPromise: Promise<GoogleReview[] | null> | null = null;
 
@@ -139,7 +129,7 @@ function fetchReviewsOnce(): Promise<GoogleReview[] | null> {
     reviewsFetchPromise = fetch('/api/reviews')
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() as Promise<GoogleReview[]>; })
       .then((data) => { reviewsCache = data; setCache('ap_reviews', data); return data; })
-      .catch(() => null);
+      .catch(() => { reviewsFetchPromise = null; return null; });
   }
   return reviewsFetchPromise;
 }

@@ -1,15 +1,8 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
+import type { GoogleReview } from '@/lib/types';
 
 export const revalidate = 86400; // ISR: revalidate once per day
-
-export interface GoogleReview {
-  name: string;
-  rating: number;
-  text: string;
-  relativeTime: string;
-  photoUrl?: string;
-}
 
 /** Shown when the Places API key is absent or to supplement few live reviews. */
 const FALLBACK_REVIEWS: GoogleReview[] = [

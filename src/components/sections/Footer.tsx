@@ -3,19 +3,9 @@
 import Seal from '@/components/Seal';
 import RatingBadges from '@/components/RatingBadges';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { WHATSAPP_URL, CALL_URL, PHONES, EMAIL, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS } from '@/lib/constants';
-import { NAV_ROUTES } from '@/components/Navbar';
+import { WHATSAPP_URL, CALL_URL, PHONES, EMAIL, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS, NAV_ROUTES, navigateToSection } from '@/lib/constants';
 import { bodyFont, colors } from '@/lib/design';
 import type { SectionProps } from './types';
-
-function handleNavClick(e: React.MouseEvent, id: string, path: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    e.preventDefault();
-    el.scrollIntoView({ behavior: 'smooth' });
-    window.history.pushState(null, '', path);
-  }
-}
 
 export default function Footer({ t, isHi }: SectionProps) {
   const navLinks = NAV_ROUTES.map(({ id, path }, i) => ({ id, path, label: t.nav[i] }));
@@ -109,7 +99,7 @@ export default function Footer({ t, isHi }: SectionProps) {
                 <li key={link.id}>
                   <a
                     href={link.path}
-                    onClick={(e) => handleNavClick(e, link.id, link.path)}
+                    onClick={(e) => navigateToSection(e, link.id, link.path)}
                     className="text-[14px] font-medium transition-colors duration-200 hover:text-white text-left no-underline"
                     style={{ color: colors.white55 }}
                   >
@@ -126,8 +116,8 @@ export default function Footer({ t, isHi }: SectionProps) {
               {t.contactTag}
             </p>
             <ul className="space-y-4">
-              {contactItems.map(({ icon, value, href }) => (
-                <li key={icon} className="flex gap-3">
+              {contactItems.map(({ icon, value, href }, i) => (
+                <li key={i} className="flex gap-3">
                   <span className="text-[16px] shrink-0 mt-0.5">{icon}</span>
                   {href ? (
                     <a href={href} className="text-[14px] hover:text-white transition-colors" style={{ color: colors.white65 }}>

@@ -28,7 +28,7 @@ export default function HomeContent({ scrollTo }: HomeContentProps) {
   useEffect(() => {
     if (scrollTo) {
       requestAnimationFrame(() => {
-        document.getElementById(scrollTo)?.scrollIntoView({ behavior: 'instant' as ScrollBehavior });
+        document.getElementById(scrollTo)?.scrollIntoView({ behavior: 'instant' });
       });
     }
   }, [scrollTo]);

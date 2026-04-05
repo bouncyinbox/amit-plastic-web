@@ -24,6 +24,27 @@ export const CATEGORY_ICONS: Record<string, string> = {
   household: '🪣',
 };
 
+export const NAV_ROUTES = [
+  { id: 'home',     path: '/' },
+  { id: 'story',    path: '/our-story' },
+  { id: 'products', path: '/products' },
+  { id: 'brands',   path: '/brands' },
+  { id: 'reviews',  path: '/reviews' },
+  { id: 'contact',  path: '/contact' },
+] as const;
+
+export type NavRouteId = typeof NAV_ROUTES[number]['id'];
+
+/** Smooth-scroll to a section and update the URL. */
+export function navigateToSection(e: React.MouseEvent, id: string, path: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    e.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth' });
+    window.history.pushState(null, '', path);
+  }
+}
+
 export const CATEGORY_GRADIENTS: Record<string, string> = {
   plastic: 'linear-gradient(135deg, #4a6fa5, #2d4f7c)',
   steel: 'linear-gradient(135deg, #3d6b52, #274d3a)',

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Seal from './Seal';
-import { WHATSAPP_URL } from '@/lib/constants';
+import { WHATSAPP_URL, NAV_ROUTES, navigateToSection } from '@/lib/constants';
 import { bodyFont } from '@/lib/design';
 import { Lang, Translations } from '@/lib/translations';
 
@@ -12,15 +12,6 @@ interface NavbarProps {
   setLang: (l: Lang) => void;
   t: Translations;
 }
-
-export const NAV_ROUTES = [
-  { id: 'home',     path: '/' },
-  { id: 'story',    path: '/our-story' },
-  { id: 'products', path: '/products' },
-  { id: 'brands',   path: '/brands' },
-  { id: 'reviews',  path: '/reviews' },
-  { id: 'contact',  path: '/contact' },
-] as const;
 
 function LangToggle({
   lang,
@@ -68,13 +59,8 @@ export default function Navbar({ scrolled, lang, setLang, t }: NavbarProps) {
   const isHi = lang === 'hi';
 
   const handleNavClick = useCallback((e: React.MouseEvent, id: string, path: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      e.preventDefault();
-      el.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', path);
-      setMenuOpen(false);
-    }
+    navigateToSection(e, id, path);
+    setMenuOpen(false);
   }, []);
 
   return (
