@@ -4,17 +4,21 @@ import Seal from '@/components/Seal';
 import RatingBadges from '@/components/RatingBadges';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { WHATSAPP_URL, CALL_URL, PHONES, EMAIL, FACEBOOK_URL, INDIAMART_URL, JUSTDIAL_URL, ACCENT_COLORS } from '@/lib/constants';
+import { NAV_ROUTES } from '@/components/Navbar';
 import { bodyFont, colors } from '@/lib/design';
 import type { SectionProps } from './types';
 
-const NAV_SECTION_IDS = ['home', 'story', 'products', 'brands', 'reviews', 'contact'] as const;
-
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+function handleNavClick(e: React.MouseEvent, id: string, path: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    e.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth' });
+    window.history.pushState(null, '', path);
+  }
 }
 
 export default function Footer({ t, isHi }: SectionProps) {
-  const navLinks = NAV_SECTION_IDS.map((id, i) => ({ id, label: t.nav[i] }));
+  const navLinks = NAV_ROUTES.map(({ id, path }, i) => ({ id, path, label: t.nav[i] }));
 
   const socialLinks = [
     {
@@ -103,13 +107,14 @@ export default function Footer({ t, isHi }: SectionProps) {
             <ul className="space-y-3">
               {navLinks.map(link => (
                 <li key={link.id}>
-                  <button
-                    onClick={() => scrollTo(link.id)}
-                    className="text-[14px] font-medium transition-colors duration-200 hover:text-white text-left"
+                  <a
+                    href={link.path}
+                    onClick={(e) => handleNavClick(e, link.id, link.path)}
+                    className="text-[14px] font-medium transition-colors duration-200 hover:text-white text-left no-underline"
                     style={{ color: colors.white55 }}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
