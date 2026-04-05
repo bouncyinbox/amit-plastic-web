@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate once per day
 
 export interface GoogleReview {
   name: string;

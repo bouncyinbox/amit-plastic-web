@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { logger } from '@/lib/logger';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate once per day
 
 const JUSTDIAL_URL =
   'https://www.justdial.com/Sitamarhi/Amit-Plastic-Furniture-Exclusive-Showroom-Near-Mata-Vaishno-Mandir-Bazar/9999P6226-6226-130406154447-L8P1_BZDET';

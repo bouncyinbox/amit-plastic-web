@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Anim } from './Animations';
-import { logger } from '@/lib/logger';
 import { colors } from '@/lib/design';
-import type { GoogleReview } from '@/app/api/reviews/route';
+import { useReviews } from '@/lib/hooks';
+import type { GoogleReview } from '@/lib/hooks';
 
 /* ─── Star row ─── */
 function StarRow({ rating }: { rating: number }) {
@@ -122,23 +122,7 @@ function SkeletonCard() {
 
 /* ─── Main component ─── */
 export default function ReviewsClient() {
-  const [reviews, setReviews] = useState<GoogleReview[] | null>(null);
-
-  useEffect(() => {
-    fetch('/api/reviews')
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json() as Promise<GoogleReview[]>;
-      })
-      .then(data => {
-        logger.info('ReviewsClient', `Loaded ${data.length} reviews`);
-        setReviews(data);
-      })
-      .catch(err => {
-        logger.error('ReviewsClient', 'Failed to fetch reviews', { message: err.message });
-        setReviews([]);
-      });
-  }, []);
+  const reviews = useReviews();
 
   if (reviews === null) {
     return (
