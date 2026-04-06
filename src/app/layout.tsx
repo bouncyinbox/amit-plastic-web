@@ -110,6 +110,7 @@ const jsonLd = {
       description:
         "Sitamarhi's largest furniture showroom and wholesale distributor since 2002. Authorized dealer of Supreme, Linc furniture, Milton thermowares and Sapana carpets.",
       url: BASE_URL,
+      image: `${BASE_URL}/opengraph-image`,
       telephone: ['+919835242431', '+917654957236', '+919471805297'],
       email: 'amitplasticstm@gmail.com',
       foundingDate: '2002',
@@ -146,6 +147,22 @@ const jsonLd = {
         bestRating: '5',
         worstRating: '1',
       },
+      review: [
+        {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: 'Amit Kumar' },
+          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+          reviewBody: 'The best place to get all household items in and around Sitamarhi. The dealers are the most experienced wholesalers and retailers with 20+ years of experience.',
+          datePublished: '2025-10-01',
+        },
+        {
+          '@type': 'Review',
+          author: { '@type': 'Person', name: 'Raushan Kumar' },
+          reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+          reviewBody: 'Perfect place for room furniture.',
+          datePublished: '2025-09-01',
+        },
+      ],
       sameAs: [
         'https://www.facebook.com/amitplasticstm/',
         'https://www.indiamart.com/amit-plastic-sitamarhi/',
@@ -216,6 +233,51 @@ const jsonLd = {
         { '@type': 'ListItem', position: 6, name: 'Contact', item: `${BASE_URL}/contact` },
       ],
     },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What brands does Amit Plastic sell?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic is an authorized dealer of Supreme Furniture, Linc Furniture, Milton Thermowares, Sapana Carpets, Spacewood, Sleepwell, SPL, Uniko, and CMP.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What are the opening hours of Amit Plastic?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic is open every day from 10:30 AM to 8:30 PM, including Sundays.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Where is Amit Plastic located in Sitamarhi?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic Furniture Exclusive Showroom is located near Mata Vaishno Mandir, Thana Road, Sitamarhi — 843302, Bihar, India.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does Amit Plastic offer wholesale pricing?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, Amit Plastic is a wholesale distributor supplying shops across Sitamarhi district. Retail customers are also welcome at the showroom.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How can I contact Amit Plastic?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'You can call +91 9835242431, +91 7654957236, or +91 9471805297. You can also WhatsApp or email at amitplasticstm@gmail.com.',
+          },
+        },
+      ],
+    },
   ],
 };
 
@@ -225,7 +287,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="canonical" href={BASE_URL} />
       </head>
       <body>
         {children}

@@ -36,12 +36,14 @@ export default function HomeContent({ scrollTo }: HomeContentProps) {
   return (
     <>
       <Navbar scrolled={scrolled} lang={lang} setLang={setLang} t={t} />
-      <Hero t={t} isHi={isHi} scrollY={scrollY} />
-      <StorySection    t={t} isHi={isHi} />
-      <ProductsSection t={t} isHi={isHi} />
-      <BrandsSection   t={t} isHi={isHi} />
-      <ReviewsSection  t={t} isHi={isHi} />
-      <ContactSection  t={t} isHi={isHi} />
+      <main>
+        <Hero t={t} isHi={isHi} scrollY={scrollY} />
+        <StorySection    t={t} isHi={isHi} />
+        <ProductsSection t={t} isHi={isHi} />
+        <BrandsSection   t={t} isHi={isHi} />
+        <ReviewsSection  t={t} isHi={isHi} />
+        <ContactSection  t={t} isHi={isHi} />
+      </main>
       <Footer          t={t} isHi={isHi} />
       <FloatingCTAs    t={t} />
     </>
