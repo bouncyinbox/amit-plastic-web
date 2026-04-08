@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi, Bihar',
+    default: 'Amit Plastic Sitamarhi — Furniture & Household | Wholesale & Retail',
     template: '%s | Amit Plastic Sitamarhi',
   },
   description:
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     alternateLocale: 'hi_IN',
     url: BASE_URL,
     siteName: 'Amit Plastic',
-    title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
+    title: 'Amit Plastic Sitamarhi — Furniture & Household | Wholesale & Retail',
     description:
       'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares. Plastic chairs, steel almirahs, home furniture & more.',
     images: [
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Amit Plastic — Furniture Showroom & Wholesale Distributor | Sitamarhi',
+    title: 'Amit Plastic Sitamarhi — Furniture & Household | Wholesale & Retail',
     description:
       'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares.',
     images: ['/opengraph-image'],
