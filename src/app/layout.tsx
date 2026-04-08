@@ -21,22 +21,48 @@ export const metadata: Metadata = {
   description:
     'Sitamarhi\'s largest furniture showroom since 2002. Authorized wholesale distributor of Supreme & Linc furniture, Milton thermowares. Plastic chairs, steel almirahs, home furniture & more. Visit us near Mata Vaishno Mandir, Thana Road, Sitamarhi — 843302, Bihar.',
   keywords: [
-    'furniture showroom Sitamarhi',
+    // Primary — brand + location
     'Amit Plastic Sitamarhi',
+    'furniture showroom Sitamarhi',
     'wholesale furniture Sitamarhi',
+    'furniture dealer Sitamarhi',
+    'best furniture shop Sitamarhi',
+    'furniture shop near Mata Vaishno Mandir Sitamarhi',
+    // Product + location
+    'plastic chair wholesale Bihar',
+    'steel almirah Sitamarhi',
+    'Sleepwell mattress dealer Sitamarhi',
+    'dining table set Sitamarhi',
+    'mattress shop Sitamarhi',
+    'sofa set Sitamarhi',
+    'wardrobe Sitamarhi',
+    'study table Sitamarhi',
+    // Brand + location
     'Supreme furniture dealer Sitamarhi',
     'Linc furniture Bihar',
-    'steel almirah Sitamarhi',
-    'plastic chair wholesale Bihar',
-    'furniture shop near Mata Vaishno Mandir Sitamarhi',
-    'office furniture Sitamarhi',
-    'home furniture Bihar',
     'Milton thermoware Sitamarhi',
+    'Spacewood furniture Sitamarhi',
     'Sapana carpet Sitamarhi',
+    'Sleepwell mattress Bihar',
+    // Category
+    'home furniture Bihar',
+    'office furniture Sitamarhi',
     'furniture wholesale distributor Bihar',
-    'furniture dealer Sitamarhi',
+    'bulk plastic chair order Bihar',
+    'furniture supplier for shops Bihar',
+    // Nearby areas
+    'furniture shop Pupri',
+    'furniture dealer Sheohar',
+    'furniture Muzaffarpur',
+    'furniture wholesale Darbhanga',
+    // Hindi keywords
     'अमित प्लास्टिक सीतामढ़ी',
     'फर्नीचर सीतामढ़ी',
+    'फर्नीचर की दुकान सीतामढ़ी',
+    'प्लास्टिक कुर्सी सीतामढ़ी',
+    'स्टील अलमारी सीतामढ़ी',
+    'गद्दा दुकान सीतामढ़ी',
+    'फर्नीचर शोरूम सीतामढ़ी',
   ],
   authors: [{ name: 'Amit Plastic Furniture Exclusive Showroom' }],
   creator: 'Amit Plastic',
@@ -193,7 +219,14 @@ const jsonLd = {
       },
       areaServed: [
         { '@type': 'City', name: 'Sitamarhi' },
+        { '@type': 'City', name: 'Pupri' },
+        { '@type': 'City', name: 'Riga' },
+        { '@type': 'City', name: 'Bairgania' },
+        { '@type': 'City', name: 'Sonbarsa' },
+        { '@type': 'City', name: 'Parihar' },
+        { '@type': 'City', name: 'Bajpatti' },
         { '@type': 'AdministrativeArea', name: 'Sitamarhi district' },
+        { '@type': 'AdministrativeArea', name: 'Sheohar district' },
         { '@type': 'State', name: 'Bihar' },
       ],
       knowsAbout: [
@@ -206,6 +239,14 @@ const jsonLd = {
         'Supreme Furniture',
         'Linc Furniture',
         'Sleepwell Mattresses',
+        'Spacewood Modular Furniture',
+        'Milton Thermowares',
+        'Sapana Carpets',
+        'Dining Table Sets',
+        'Plastic Chairs Wholesale',
+        'Mattress Dealer',
+        'Wardrobe and Storage Solutions',
+        'Office Furniture',
       ],
     },
     {
@@ -274,6 +315,46 @@ const jsonLd = {
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'You can call +91 9835242431, +91 7654957236, or +91 9471805297. You can also WhatsApp or email at amitplasticstm@gmail.com.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I buy Sleepwell mattress in Sitamarhi?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, Amit Plastic is an authorized Sleepwell dealer in Sitamarhi. We stock mattresses, pillows, and cushions at our Thana Road showroom.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Where can I buy Supreme plastic chairs in bulk in Bihar?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic is an authorized wholesale distributor of Supreme Furniture in Sitamarhi. We supply bulk orders of Supreme plastic chairs, tables, and stools to shops and dealers across Sitamarhi, Sheohar, Pupri, Riga, and surrounding Bihar districts.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does Amit Plastic deliver to Pupri, Riga, and nearby towns?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes, Amit Plastic supplies furniture wholesale to shops in Pupri, Riga, Bairgania, Sonbarsa, Parihar, Bajpatti, and across Sitamarhi district. Contact us on WhatsApp (+91 9835242431) for delivery and bulk order details.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the price range of steel almirahs at Amit Plastic?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic offers Linc steel almirahs in various sizes — single door, double door, and wardrobe models. Visit our showroom on Thana Road, Sitamarhi or call +91 9835242431 for current pricing.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Which is the best furniture shop in Sitamarhi?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Amit Plastic is rated 4.6★ on Google and is Sitamarhi\'s largest furniture showroom since 2002. We are authorized dealers of 9 leading brands including Supreme, Linc, Sleepwell, and Spacewood, serving 10,000+ families.',
           },
         },
       ],
